@@ -13,6 +13,7 @@ import {
   X,
   MapPin,
   CheckCircle2,
+  HelpCircle,
 } from 'lucide-react';
 import { ARTICLES, CATEGORIES } from '../data/articles';
 import { GALLERY_PHOTOS } from '../data/gallery';
@@ -189,21 +190,31 @@ export const HomePage: React.FC<HomePageProps> = ({
               Cover Feature · Exclusive Track Test
             </span>
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] tracking-tight mt-1 uppercase">
-              LEAD STORY
+              WHAT IS THE BENCHMARK SUPERBIKE OF 2026?
             </h2>
           </div>
-          <button
-            onClick={() => onSelectArticle(featuredArticle.slug)}
+          <a
+            href={`/article/${featuredArticle.slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectArticle(featuredArticle.slug);
+            }}
+            aria-label={`Read full feature: ${featuredArticle.title}`}
             className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5A1F] hover:text-white transition-colors cursor-pointer"
           >
-            <span>Read Full Feature</span>
+            <span>Read Full Feature: {featuredArticle.title}</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
-        <div
-          onClick={() => onSelectArticle(featuredArticle.slug)}
-          className="group relative bg-[#131313] border border-[#222222] hover:border-[#383838] transition-all duration-300 overflow-hidden cursor-pointer"
+        <a
+          href={`/article/${featuredArticle.slug}`}
+          onClick={(e) => {
+            e.preventDefault();
+            onSelectArticle(featuredArticle.slug);
+          }}
+          aria-label={`Read lead story: ${featuredArticle.title}`}
+          className="group relative bg-[#131313] border border-[#222222] hover:border-[#383838] transition-all duration-300 overflow-hidden cursor-pointer block"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Visual Column */}
@@ -238,7 +249,18 @@ export const HomePage: React.FC<HomePageProps> = ({
                   {featuredArticle.subtitle}
                 </p>
 
-                <p className="mt-4 text-xs sm:text-sm text-[#888888] leading-relaxed line-clamp-3">
+                {/* AEO Question-Answer Editorial Block */}
+                <div className="mt-4 p-3.5 bg-[#0D0D0D] border-l-2 border-[#FF5A1F] border-y border-r border-[#202020] text-xs sm:text-sm text-[#CCCCCC] leading-relaxed">
+                  <span className="text-[11px] font-mono font-bold text-[#FF5A1F] block uppercase mb-1">
+                    Q: Why does the 2026 Panigale V4 S define the new superbike benchmark?
+                  </span>
+                  <p>
+                    <strong className="text-white font-bold">A: </strong>
+                    Ducati sacrificed the iconic single-sided swingarm for a hollow aluminum double-sided unit that reduces lateral stiffness by 37%, delivering unprecedented rear-wheel cornering grip and lap-time speed.
+                  </p>
+                </div>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#888888] leading-relaxed line-clamp-2">
                   {featuredArticle.excerpt}
                 </p>
 
@@ -291,7 +313,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
           </div>
-        </div>
+        </a>
       </section>
 
       {/* 10. BROWSE BY CATEGORY SECTION */}
@@ -303,7 +325,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Departments
               </span>
               <h2 className="text-2xl lg:text-3xl font-display font-bold text-[#F5F5F5] tracking-tight mt-1 uppercase">
-                BROWSE BY CATEGORY
+                WHICH MOTORCYCLE DISCIPLINE DEFINES YOUR RIDE?
               </h2>
             </div>
             <span className="text-xs text-[#707070] font-mono">7 Disciplines of Riding</span>
@@ -369,16 +391,21 @@ export const HomePage: React.FC<HomePageProps> = ({
               Fresh Off The Tarmac
             </span>
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] tracking-tight mt-1 uppercase">
-              LATEST STORIES
+              WHAT ARE THE MOST CRITICAL MOTORCYCLE DISPATCHES THIS WEEK?
             </h2>
           </div>
-          <button
-            onClick={() => onNavigate({ type: 'journal' })}
+          <a
+            href="/journal"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate({ type: 'journal' });
+            }}
+            aria-label="View all motorcycle journal stories"
             className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5A1F] hover:text-white transition-colors cursor-pointer"
           >
             <span>View All Stories</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -403,7 +430,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <span>Curated Masterpieces</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] tracking-tight mt-1 uppercase">
-                EDITOR’S PICKS
+                WHICH STORIES DO SENIOR TEST EDITORS RECOMMEND FIRST?
               </h2>
             </div>
             <span className="text-xs text-[#7A7A7A] font-mono hidden sm:inline">
@@ -413,10 +440,15 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {editorsPicks.map((article, idx) => (
-              <div
+              <a
                 key={article.id}
-                onClick={() => onSelectArticle(article.slug)}
-                className="group relative bg-[#151515] hover:bg-[#1A1A1A] border border-[#242424] hover:border-[#383838] p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+                href={`/article/${article.slug}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectArticle(article.slug);
+                }}
+                aria-label={`Read editor's pick: ${article.title}`}
+                className="group relative bg-[#151515] hover:bg-[#1A1A1A] border border-[#242424] hover:border-[#383838] p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer block"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs mb-4">
@@ -441,7 +473,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <span className="text-[#C0C0C0] font-medium">{article.author.name}</span>
                   <span className="font-mono text-[11px]">{article.readTime}</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -454,7 +486,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             Survival Physics & Workshop Discipline
           </span>
           <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight mt-1">
-            MAINTENANCE & RIDER SAFETY
+            HOW DO GARAGE WRENCHING AND CORNERING PHYSICS KEEP YOU ALIVE?
           </h2>
           <p className="mt-2 text-sm text-[#A0A0A0]">
             The two halves of the true rider: mechanical mastery in the garage and survival competence on the road.
@@ -464,9 +496,14 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Maintenance Spotlight */}
           {maintenanceSpotlight && (
-            <div
-              onClick={() => onSelectArticle(maintenanceSpotlight.slug)}
-              className="group bg-[#131313] border border-[#222222] hover:border-[#FF5A1F]/50 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative overflow-hidden"
+            <a
+              href={`/article/${maintenanceSpotlight.slug}`}
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectArticle(maintenanceSpotlight.slug);
+              }}
+              aria-label={`Read workshop protocol guide: ${maintenanceSpotlight.title}`}
+              className="group bg-[#131313] border border-[#222222] hover:border-[#FF5A1F]/50 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative overflow-hidden block"
             >
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono text-[#EAB308] uppercase tracking-widest font-semibold mb-3">
@@ -482,13 +519,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   {maintenanceSpotlight.excerpt}
                 </p>
 
-                <div className="mt-6 p-4 bg-[#0D0D0D] border border-[#222222]">
+                <div className="mt-6 p-4 bg-[#0D0D0D] border-l-2 border-[#EAB308] border-y border-r border-[#222222]">
                   <span className="text-[11px] font-mono text-[#EAB308] font-bold block mb-1">
-                    KEY WRENCH CHECK:
+                    Q: Why does motorcycle chain slack change when suspension compresses?
                   </span>
                   <p className="text-xs text-[#C0C0C0] leading-relaxed">
-                    Never adjust chain tension on the side stand if loading luggage. Maximum tension
-                    occurs when countershaft, pivot, and axle align horizontally.
+                    <strong className="text-white">A: </strong>Because the countershaft sprocket, swingarm pivot, and rear axle move out of planar alignment. Maximum tension occurs when all three align in a straight horizontal line under compression.
                   </p>
                 </div>
               </div>
@@ -499,14 +535,19 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Master the Guide <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
-            </div>
+            </a>
           )}
 
           {/* Safety Spotlight */}
           {safetySpotlight && (
-            <div
-              onClick={() => onSelectArticle(safetySpotlight.slug)}
-              className="group bg-[#131313] border border-[#222222] hover:border-[#EF4444]/60 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative overflow-hidden"
+            <a
+              href={`/article/${safetySpotlight.slug}`}
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectArticle(safetySpotlight.slug);
+              }}
+              aria-label={`Read rider safety technique: ${safetySpotlight.title}`}
+              className="group bg-[#131313] border border-[#222222] hover:border-[#EF4444]/60 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative overflow-hidden block"
             >
               <div>
                 <div className="flex items-center gap-2 text-xs font-mono text-[#EF4444] uppercase tracking-widest font-semibold mb-3">
@@ -522,13 +563,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   {safetySpotlight.excerpt}
                 </p>
 
-                <div className="mt-6 p-4 bg-[#0D0D0D] border border-[#222222]">
+                <div className="mt-6 p-4 bg-[#0D0D0D] border-l-2 border-[#EF4444] border-y border-r border-[#222222]">
                   <span className="text-[11px] font-mono text-[#EF4444] font-bold block mb-1">
-                    100-POINT TRACTION RULE:
+                    Q: Why is trail-braking safer than braking only in a straight line?
                   </span>
                   <p className="text-xs text-[#C0C0C0] leading-relaxed">
-                    Never dump the brake lever abruptly before a turn. Keep light front brake applied
-                    to compress the fork, steepen geometry, and expand the tire patch until the apex.
+                    <strong className="text-white">A: </strong>Because trailing light front brake pressure into the turn compresses the fork, expanding your front tire contact patch by up to 80% and providing immediate mid-corner steering control.
                   </p>
                 </div>
               </div>
@@ -539,7 +579,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Read Technique <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
-            </div>
+            </a>
           )}
         </div>
       </section>
@@ -553,23 +593,33 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Lab Tested · Impact & Weather Protection
               </span>
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight mt-1">
-                RIDING GEAR & ARMOR LAB
+                WHAT ARMORED GEAR AND HELMET RATINGS SURVIVE REAL CRASHES?
               </h2>
             </div>
-            <button
-              onClick={() => onNavigate({ type: 'journal', category: 'gear' })}
+            <a
+              href="/journal/gear"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'journal', category: 'gear' });
+              }}
+              aria-label="Explore all motorcycle riding gear reviews"
               className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5A1F] hover:text-white transition-colors cursor-pointer"
             >
               <span>Explore All Gear Reviews</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Gear 1: Full-Face Carbon Helmets */}
-            <div
-              onClick={() => onSelectArticle('science-of-motorcycle-helmets-ece2206-fim')}
-              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between"
+            <a
+              href="/article/science-of-motorcycle-helmets-ece2206-fim"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectArticle('science-of-motorcycle-helmets-ece2206-fim');
+              }}
+              aria-label="Read helmet safety guide: ECE 22.06 Rotational Safety Lids"
+              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between block"
             >
               <div className="aspect-[4/3] overflow-hidden bg-black relative">
                 <MotorcycleImage
@@ -598,12 +648,17 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Gear 2: 4-Season Touring Armor */}
-            <div
-              onClick={() => onSelectArticle('four-season-motorcycle-touring-armor-guide')}
-              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between"
+            <a
+              href="/article/four-season-motorcycle-touring-armor-guide"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectArticle('four-season-motorcycle-touring-armor-guide');
+              }}
+              aria-label="Read touring outerwear guide: Four-Season Armored Touring Outerwear"
+              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between block"
             >
               <div className="aspect-[4/3] overflow-hidden bg-black relative">
                 <MotorcycleImage
@@ -632,12 +687,17 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Gear 3: Cold-Weather & Heated Gloves */}
-            <div
-              onClick={() => onSelectArticle('ultimate-winter-riding-heated-gear-guide')}
-              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between"
+            <a
+              href="/article/ultimate-winter-riding-heated-gear-guide"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectArticle('ultimate-winter-riding-heated-gear-guide');
+              }}
+              aria-label="Read heated gloves guide: Sub-Zero Heated and Armored Gauntlets"
+              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between block"
             >
               <div className="aspect-[4/3] overflow-hidden bg-black relative">
                 <MotorcycleImage
@@ -666,12 +726,17 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Gear 4: Heavy-Duty Adventure Boots */}
-            <div
-              onClick={() => onNavigate({ type: 'journal', category: 'gear' })}
-              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between"
+            <a
+              href="/journal/gear"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'journal', category: 'gear' });
+              }}
+              aria-label="Browse all adventure and enduro boots in the Riding Gear category"
+              className="group bg-[#141414] border border-[#242424] hover:border-[#FF5A1F]/60 overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between block"
             >
               <div className="aspect-[4/3] overflow-hidden bg-black relative">
                 <MotorcycleImage
@@ -700,7 +765,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -714,14 +779,24 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Expedition Dispatches
               </span>
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight leading-tight">
-                THE ROAD TRIPS & ADVENTURE COMPASS
+                WHERE ARE THE WORLD'S MOST UNFORGIVING MOTORCYCLE EXPEDITIONS?
               </h2>
               <p className="text-sm text-[#A0A0A0] leading-relaxed">
                 From high-altitude Himalayan passes to the punishing crosswinds of Argentine Patagonia,
                 our overland team maps the most breathtaking and demanding routes on earth.
               </p>
 
-              <div className="pt-4 space-y-3">
+              {/* AEO Question-Answer Block */}
+              <div className="p-3.5 bg-[#171717] border-l-2 border-[#FF5A1F] border-y border-r border-[#262626] text-xs text-[#C0C0C0] leading-relaxed">
+                <span className="text-[11px] font-mono text-[#FF5A1F] font-bold block mb-1 uppercase">
+                  Q: How do adventure riders survive extreme terrain from the Himalayas to Patagonia?
+                </span>
+                <p>
+                  <strong className="text-white">A: </strong>By carrying calibrated emergency spares, running direct-laminate Gore-Tex to eliminate wetting out, and adjusting standing throttle cadence across loose river gravel and high-altitude passes.
+                </p>
+              </div>
+
+              <div className="pt-2 space-y-3">
                 <div className="flex items-start gap-3 p-3 bg-[#171717] border border-[#262626]">
                   <Compass className="w-5 h-5 text-[#FF5A1F] shrink-0 mt-0.5" />
                   <div>
@@ -744,21 +819,31 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="pt-2">
-                <button
-                  onClick={() => onNavigate({ type: 'journal', category: 'road-trips' })}
+                <a
+                  href="/journal/road-trips"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'journal', category: 'road-trips' });
+                  }}
+                  aria-label="Explore all motorcycle road trip expeditions and routes"
                   className="px-6 py-3 bg-[#FF5A1F] hover:bg-[#E04812] text-black text-xs font-display font-bold tracking-wider uppercase transition-colors inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Explore All Road Trips</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
 
             <div className="lg:col-span-7">
               {adventureFeature && (
-                <div
-                  onClick={() => onSelectArticle(adventureFeature.slug)}
-                  className="group relative bg-[#161616] border border-[#282828] overflow-hidden cursor-pointer"
+                <a
+                  href={`/article/${adventureFeature.slug}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectArticle(adventureFeature.slug);
+                  }}
+                  aria-label={`Read expedition dispatch: ${adventureFeature.title}`}
+                  className="group relative bg-[#161616] border border-[#282828] overflow-hidden cursor-pointer block"
                 >
                   <div className="aspect-[16/10] overflow-hidden">
                     <MotorcycleImage
@@ -781,7 +866,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       {adventureFeature.excerpt}
                     </p>
                   </div>
-                </div>
+                </a>
               )}
             </div>
           </div>
@@ -796,7 +881,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               The Brotherhood & Sisterhood of Two Wheels
             </span>
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight mt-1">
-              RIDER CULTURE GALLERY
+              HOW DOES TWO-WHEEL BROTHERHOOD TRANSCEND GLOBAL BORDERS?
             </h2>
           </div>
           <span className="text-xs text-[#7A7A7A] font-mono hidden sm:inline">
@@ -959,6 +1044,146 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       )}
 
+      {/* 16. ANSWER ENGINE OPTIMIZATION (AEO) MOTORCYCLE KNOWLEDGE BASE */}
+      <section className="py-16 lg:py-20 bg-[#101010] border-t border-[#222222]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-xs font-mono text-[#FF5A1F] uppercase font-semibold mb-3">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Answer Engine Knowledge Base · AEO
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight">
+              WHAT DO RIDERS FREQUENTLY ASK ABOUT MOTORCYCLE TECH & SAFETY?
+            </h2>
+            <p className="mt-2 text-sm text-[#A0A0A0]">
+              Direct, verified answers to the most critical mechanical and riding dynamics questions for human riders and answer engines alike.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Q&A Card 1: Brake Fluid */}
+            <div className="bg-[#141414] border border-[#242424] p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FF5A1F] uppercase font-semibold mb-2">
+                  <span>Hydraulics & Braking</span>
+                </div>
+                <h3 className="text-lg font-display font-bold text-white mb-3">
+                  Q: Why does aged motorcycle brake fluid cause total lever collapse?
+                </h3>
+                <p className="text-xs sm:text-sm text-[#B0B0B0] leading-relaxed">
+                  <strong className="text-white">A: </strong>
+                  Glycol brake fluid is intensely hygroscopic and absorbs ambient humidity through hose micropores at ~2% per year. Contaminated fluid boils into compressible steam bubbles at just 100°C under hard downhill canyon braking, leaving zero hydraulic force to squeeze the brake pads.
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-[#202020]">
+                <a
+                  href="/article/diy-motorcycle-brake-bleed-fluid-flush-guide"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectArticle('diy-motorcycle-brake-bleed-fluid-flush-guide');
+                  }}
+                  aria-label="Read reverse syringe brake bleed guide: DIY Motorcycle Brake Bleed & Fluid Flush"
+                  className="text-xs font-mono font-bold text-[#FF5A1F] hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <span>Read Syringe Reverse-Bleed Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Q&A Card 2: ECE 22.06 Helmet Standards */}
+            <div className="bg-[#141414] border border-[#242424] p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FF5A1F] uppercase font-semibold mb-2">
+                  <span>Cranial Impact Physics</span>
+                </div>
+                <h3 className="text-lg font-display font-bold text-white mb-3">
+                  Q: How does the ECE 22.06 helmet standard protect against brain damage?
+                </h3>
+                <p className="text-xs sm:text-sm text-[#B0B0B0] leading-relaxed">
+                  <strong className="text-white">A: </strong>
+                  ECE 22.06 introduces mandatory oblique (rotational) testing at 45-degree angles, measuring rotational acceleration that causes diffuse axonal shear injury. Unlike obsolete straight-drop DOT tests, it requires multi-density EPS liners and slip planes that absorb rotational energy before it twists the brain stem.
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-[#202020]">
+                <a
+                  href="/article/science-of-motorcycle-helmets-ece2206-fim"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectArticle('science-of-motorcycle-helmets-ece2206-fim');
+                  }}
+                  aria-label="Read helmet safety laboratory report: The Lifesaving Science of Motorcycle Helmets"
+                  className="text-xs font-mono font-bold text-[#FF5A1F] hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <span>Read Helmet Science & Testing Analysis</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Q&A Card 3: Drive Chain Geometry */}
+            <div className="bg-[#141414] border border-[#242424] p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FF5A1F] uppercase font-semibold mb-2">
+                  <span>Driveline & Chassis</span>
+                </div>
+                <h3 className="text-lg font-display font-bold text-white mb-3">
+                  Q: Why must motorcycle chain tension never be adjusted too tight?
+                </h3>
+                <p className="text-xs sm:text-sm text-[#B0B0B0] leading-relaxed">
+                  <strong className="text-white">A: </strong>
+                  The front countershaft sprocket, swingarm pivot, and rear axle do not lie in a straight line at rest. Maximum chain tension occurs when the suspension compresses and all three points align horizontally. A tight chain binds the rear suspension, stresses the countershaft bearing, and can crack the engine case.
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-[#202020]">
+                <a
+                  href="/article/motorcycle-chain-tension-sprocket-alignment-masterclass"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectArticle('motorcycle-chain-tension-sprocket-alignment-masterclass');
+                  }}
+                  aria-label="Read motorcycle chain adjustment guide: Garage Masterclass: Chain Tension & Alignment"
+                  className="text-xs font-mono font-bold text-[#FF5A1F] hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <span>Read 6-Step Chain Alignment Masterclass</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Q&A Card 4: Trail-Braking Technique */}
+            <div className="bg-[#141414] border border-[#242424] p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#FF5A1F] uppercase font-semibold mb-2">
+                  <span>Cornering Dynamics</span>
+                </div>
+                <h3 className="text-lg font-display font-bold text-white mb-3">
+                  Q: Why is trail-braking safer than braking only in a straight line?
+                </h3>
+                <p className="text-xs sm:text-sm text-[#B0B0B0] leading-relaxed">
+                  <strong className="text-white">A: </strong>
+                  Releasing the front brake before corner entry causes the fork to rebound, extending wheelbase and unloading the front contact patch. Smoothly trailing light front brake pressure into the turn squashes the tire patch by up to 80% and keeps the fork compressed, giving you immediate control to scrub speed or tighten your line.
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-[#202020]">
+                <a
+                  href="/article/trail-braking-masterclass-physics-and-street-survival"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectArticle('trail-braking-masterclass-physics-and-street-survival');
+                  }}
+                  aria-label="Read cornering physics masterclass: Trail-Braking Masterclass: Physics & Street Survival"
+                  className="text-xs font-mono font-bold text-[#FF5A1F] hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <span>Read 100-Point Friction Rule Masterclass</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 14. NEWSLETTER SUBSCRIPTION SECTION */}
       <section className="py-20 bg-[#0C0C0C] border-t border-[#222222] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#FF5A1F_1px,transparent_1px)] [background-size:24px_24px]" />
@@ -970,13 +1195,24 @@ export const HomePage: React.FC<HomePageProps> = ({
           </span>
 
           <h2 className="text-4xl sm:text-5xl font-display font-bold text-[#F5F5F5] uppercase tracking-tight">
-            JOIN 48,000+ DEDICATED RIDERS
+            WHY JOIN 48,000+ DEDICATED RIDERS IN THE WEEKLY BRIEFING?
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-[#A0A0A0] max-w-xl mx-auto leading-relaxed">
             Get our Sunday morning dispatch: zero sponsored fluff, one deep technical tear-down,
             and exclusive GPX route files straight to your inbox.
           </p>
+
+          {/* AEO Question-Answer Block */}
+          <div className="mt-4 p-4 bg-[#141414] border-l-2 border-[#FF5A1F] border-y border-r border-[#242424] max-w-xl mx-auto text-left text-xs sm:text-sm text-[#C0C0C0] leading-relaxed">
+            <span className="text-[#FF5A1F] font-mono font-bold block mb-1 text-[11px] uppercase">
+              Q: What makes The Throttle Dispatch the most trusted weekly motorcycle briefing?
+            </span>
+            <p>
+              <strong className="text-white">A: </strong>
+              We deliver zero sponsored fluff—only raw road telemetry, one deep garage wrenching teardown, and verified GPX route files delivered directly to your inbox every Sunday morning.
+            </p>
+          </div>
 
           <div className="mt-8 max-w-md mx-auto">
             {newsletterSuccess ? (

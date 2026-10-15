@@ -176,6 +176,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
                 setVisibleCount(8);
                 onSelectCategory?.(undefined);
               }}
+              aria-label={`Filter journal articles by all topics (${ARTICLES.length} available)`}
               className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 transition-colors cursor-pointer ${
                 selectedCategory === 'all'
                   ? 'bg-[#FF5A1F] text-black'
@@ -197,6 +198,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
                     setVisibleCount(8);
                     onSelectCategory?.(cat.id);
                   }}
+                  aria-label={`Filter journal articles by ${cat.label} (${count} available)`}
                   className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-[#FF5A1F] text-black'

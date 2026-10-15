@@ -1,6 +1,6 @@
 {
   "name": "THROTTLE CULTURE — Premium Motorcycle Lifestyle Blog",
-  "description": "Built for the Ride. Driven by Passion. The premier motorcycle lifestyle publication covering in-depth reviews, riding gear, maintenance, road trips, and rider culture.",
+  "description": "Read raw, independent motorcycle journalism. Explore in-depth superbike track reviews, adventure dispatches, technical gear tests, and garage wrenching guides.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

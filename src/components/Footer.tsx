@@ -30,14 +30,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-[#1A1A1A]">
           {/* Col 1 & 2: Brand & Manifesto */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-[#FF5A1F] flex items-center justify-center font-display font-bold text-black text-lg">
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'home' });
+              }}
+              aria-label="Throttle Culture - Return to Homepage"
+              className="flex items-center gap-2.5 group cursor-pointer inline-flex"
+            >
+              <div className="w-8 h-8 bg-[#FF5A1F] flex items-center justify-center font-display font-bold text-black text-lg group-hover:bg-white transition-colors">
                 TC
               </div>
-              <span className="font-display font-bold text-2xl tracking-tighter text-[#F5F5F5]">
+              <span className="font-display font-bold text-2xl tracking-tighter text-[#F5F5F5] group-hover:text-[#FF5A1F] transition-colors">
                 THROTTLE<span className="text-[#FF5A1F]">CULTURE</span>
               </span>
-            </div>
+            </a>
 
             <p className="text-xs font-mono tracking-widest text-[#FF5A1F] uppercase font-semibold">
               “Built for the Ride. Driven by Passion.”
@@ -73,6 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
                       e.preventDefault();
                       onNavigate({ type: 'journal', category: cat.id });
                     }}
+                    aria-label={`Browse ${cat.label} articles`}
                     className="hover:text-[#FF5A1F] transition-colors text-left cursor-pointer inline-block"
                   >
                     {cat.label}
@@ -95,6 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
                     e.preventDefault();
                     onNavigate({ type: 'about' });
                   }}
+                  aria-label="Learn more about Throttle Culture magazine and editorial ethics"
                   className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   About the Magazine
@@ -107,6 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
                     e.preventDefault();
                     onNavigate({ type: 'journal' });
                   }}
+                  aria-label="Browse all articles in The Rider's Journal archive"
                   className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   The Rider’s Journal
@@ -119,18 +130,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
                     e.preventDefault();
                     onNavigate({ type: 'contact' });
                   }}
+                  aria-label="Contact editorial desk and manufacturer press fleet relations"
                   className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   Contact & Press Bikes
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate({ type: 'contact' })}
-                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer"
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'contact' });
+                  }}
+                  aria-label="Submit a rider dispatch or story proposal"
+                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   Submit Rider Dispatches
-                </button>
+                </a>
               </li>
               <li>
                 <span className="text-[#606060]">Print Archive (Vol. 01–06)</span>
@@ -189,10 +206,42 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="hover:text-[#F5F5F5] transition-colors cursor-pointer">Instagram</span>
-            <span className="hover:text-[#F5F5F5] transition-colors cursor-pointer">YouTube</span>
-            <span className="hover:text-[#F5F5F5] transition-colors cursor-pointer">X / Twitter</span>
-            <span className="hover:text-[#F5F5F5] transition-colors cursor-pointer">Strava Moto</span>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Throttle Culture on Instagram"
+              className="hover:text-[#F5F5F5] transition-colors cursor-pointer"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Subscribe to Throttle Culture on YouTube"
+              className="hover:text-[#F5F5F5] transition-colors cursor-pointer"
+            >
+              YouTube
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Throttle Culture on X Twitter"
+              className="hover:text-[#F5F5F5] transition-colors cursor-pointer"
+            >
+              X / Twitter
+            </a>
+            <a
+              href="https://strava.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Join Throttle Culture Moto Racing Club on Strava"
+              className="hover:text-[#F5F5F5] transition-colors cursor-pointer"
+            >
+              Strava Moto
+            </a>
           </div>
         </div>
       </div>

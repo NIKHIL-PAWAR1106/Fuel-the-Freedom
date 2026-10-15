@@ -55,6 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="/"
               onClick={(e) => handleNavClick(e, { type: 'home' })}
+              aria-label="Throttle Culture - Return to Homepage"
               className="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none"
             >
               <div className="w-9 h-9 bg-[#FF5A1F] flex items-center justify-center font-display font-bold text-black text-xl tracking-tighter group-hover:bg-white transition-colors duration-200">
@@ -81,6 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.label}
                   href={path}
                   onClick={(e) => handleNavClick(e, item.route)}
+                  aria-label={`Navigate to ${item.label}`}
                   className={`relative py-1 whitespace-nowrap transition-colors duration-150 cursor-pointer ${
                     active
                       ? 'text-[#FF5A1F]'
@@ -115,6 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="/journal"
               onClick={(e) => handleNavClick(e, { type: 'journal' })}
+              aria-label="Browse The Rider's Journal"
               className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase px-4 py-2 bg-[#FF5A1F] hover:bg-[#E04812] text-black transition-colors cursor-pointer"
             >
               <Compass className="w-3.5 h-3.5" />
@@ -149,6 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.label}
                   href={path}
                   onClick={(e) => handleNavClick(e, item.route)}
+                  aria-label={`Navigate to ${item.label}`}
                   className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold tracking-wide text-left transition-colors ${
                     active
                       ? 'bg-[#1C1C1C] text-[#FF5A1F] border-l-2 border-[#FF5A1F]'
@@ -164,6 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="/contact"
               onClick={(e) => handleNavClick(e, { type: 'contact' })}
+              aria-label="Navigate to Contact and Dispatch"
               className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold tracking-wide text-left transition-colors ${
                 currentRoute.type === 'contact'
                   ? 'bg-[#1C1C1C] text-[#FF5A1F] border-l-2 border-[#FF5A1F]'
@@ -179,6 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               href="/journal"
               onClick={(e) => handleNavClick(e, { type: 'journal' })}
+              aria-label="Browse all 12 motorcycle articles in the journal"
               className="flex-1 py-3 text-center text-xs font-bold uppercase tracking-wider bg-[#FF5A1F] text-black"
             >
               Browse All 12+ Articles

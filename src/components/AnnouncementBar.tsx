@@ -22,12 +22,18 @@ export const AnnouncementBar: React.FC<AnnouncementBarProps> = ({ onExploreIssue
           <p className="text-xs font-medium truncate text-[#E5E5E5]">
             The 2026 Alpine & Trans-Himalayan Expedition Issue is out now.
           </p>
-          <button
-            onClick={onExploreIssue}
+          <a
+            href="/journal"
+            onClick={(e) => {
+              e.preventDefault();
+              onExploreIssue();
+            }}
+            aria-label="Read Issue No. 42: The 2026 Alpine and Trans-Himalayan Expedition Issue"
             className="hidden md:inline-flex items-center gap-1 text-[#FF5A1F] hover:text-[#FFA07A] font-medium tracking-wide transition-colors ml-1 cursor-pointer"
           >
-            Read Issue <ChevronRight className="w-3 h-3" />
-          </button>
+            <span>Read Issue</span>
+            <ChevronRight className="w-3 h-3" />
+          </a>
         </div>
 
         <button

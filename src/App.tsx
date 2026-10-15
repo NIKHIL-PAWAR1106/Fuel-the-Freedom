@@ -38,7 +38,7 @@ export default function App() {
         ? ARTICLES.find((a) => a.slug === currentRoute.slug)
         : undefined;
 
-    updatePageMeta(currentRoute, activeArticle?.title);
+    updatePageMeta(currentRoute, activeArticle);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentRoute]);
 
@@ -131,6 +131,7 @@ export default function App() {
             slug={currentRoute.slug}
             onBackToBlog={() => navigateTo({ type: 'journal' })}
             onSelectArticle={handleSelectArticle}
+            onNavigate={navigateTo}
             onToast={showToast}
           />
         )}

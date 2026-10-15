@@ -13,9 +13,10 @@ import {
   Check,
   Bookmark,
   MessageCircle,
+  HelpCircle,
 } from 'lucide-react';
 import { ARTICLES } from '../data/articles';
-import { Article } from '../types';
+import { Article, PageRoute, CategoryId } from '../types';
 import { MotorcycleImage } from '../components/MotorcycleImage';
 import { ArticleCard } from '../components/ArticleCard';
 
@@ -23,6 +24,7 @@ interface ArticleDetailPageProps {
   slug: string;
   onBackToBlog: () => void;
   onSelectArticle: (slug: string) => void;
+  onNavigate?: (route: PageRoute) => void;
   onToast: (msg: string) => void;
 }
 
@@ -30,6 +32,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
   slug,
   onBackToBlog,
   onSelectArticle,
+  onNavigate,
   onToast,
 }) => {
   const [copied, setCopied] = useState(false);
@@ -45,6 +48,97 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
   const relatedArticles = ARTICLES.filter((a) => a.id !== article.id)
     .sort((a, b) => (a.category === article.category ? -1 : 1))
     .slice(0, 3);
+
+  // Markdown internal link & AEO Q&A parser for in-article text
+  const renderFormattedText = (text: string) => {
+    // Matches either markdown links [text](url) or markdown bold **text**
+    const tokenRegex = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*)/g;
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = tokenRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(text.slice(lastIndex, match.index));
+      }
+
+      if (match[2] && match[3]) {
+        // Markdown link
+        const anchorText = match[2];
+        const url = match[3];
+
+        parts.push(
+          <a
+            key={`${match.index}-${url}`}
+            href={url}
+            onClick={(e) => {
+              e.preventDefault();
+              if (url.startsWith('/article/')) {
+                const targetSlug = url.replace('/article/', '');
+                onSelectArticle(targetSlug);
+              } else if (url.startsWith('/journal/')) {
+                const cat = url.replace('/journal/', '') as CategoryId;
+                onNavigate ? onNavigate({ type: 'journal', category: cat }) : onBackToBlog();
+              } else if (url === '/journal') {
+                onNavigate ? onNavigate({ type: 'journal' }) : onBackToBlog();
+              } else if (url === '/about') {
+                onNavigate?.({ type: 'about' });
+              } else if (url === '/contact') {
+                onNavigate?.({ type: 'contact' });
+              } else if (url === '/') {
+                onNavigate?.({ type: 'home' });
+              } else {
+                window.location.href = url;
+              }
+            }}
+            aria-label={`Internal link: ${anchorText}`}
+            className="text-[#FF5A1F] hover:text-[#FFA07A] underline underline-offset-4 decoration-1 decoration-[#FF5A1F]/60 hover:decoration-[#FF5A1F] font-semibold transition-colors"
+          >
+            {anchorText}
+          </a>
+        );
+      } else if (match[4]) {
+        // Markdown bold - check if it's an AEO Q: or A: block
+        const boldContent = match[4];
+        if (boldContent.startsWith('Q:')) {
+          const qText = boldContent.replace(/^Q:\s*/, '');
+          parts.push(
+            <span key={`q-${match.index}`} className="block sm:inline my-2 sm:my-0">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 mr-2 rounded-none bg-[#FF5A1F]/15 text-[#FF5A1F] border border-[#FF5A1F]/40 font-mono text-[11px] font-bold uppercase tracking-wider align-baseline shadow-sm">
+                <HelpCircle className="w-3 h-3 shrink-0" />
+                <span>Question</span>
+              </span>
+              <strong className="text-white font-bold tracking-tight">{qText}</strong>
+            </span>
+          );
+        } else if (boldContent.startsWith('A:')) {
+          const aText = boldContent.replace(/^A:\s*/, '');
+          parts.push(
+            <span key={`a-${match.index}`} className="block sm:inline my-2 sm:my-0">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 mr-2 ml-0 sm:ml-2 rounded-none bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/40 font-mono text-[11px] font-bold uppercase tracking-wider align-baseline shadow-sm">
+                <span>Answer</span>
+              </span>
+              <strong className="text-[#F0F0F0] font-semibold">{aText}</strong>
+            </span>
+          );
+        } else {
+          parts.push(
+            <strong key={`b-${match.index}`} className="text-white font-bold">
+              {boldContent}
+            </strong>
+          );
+        }
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
+  };
 
   // Set active section on scroll
   useEffect(() => {
@@ -114,6 +208,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               e.preventDefault();
               onBackToBlog();
             }}
+            aria-label="Return to motorcycle journal archive"
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#A0A0A0] hover:text-[#FF5A1F] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -152,14 +247,36 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
 
       {/* Hero Header Area */}
       <header className="max-w-4xl mx-auto px-4 sm:px-6 pt-10 pb-8 text-center">
-        {/* Category & Read Time Kicker */}
-        <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest uppercase text-[#FF5A1F] mb-4 font-semibold">
-          <span>{article.categoryLabel}</span>
-          <span className="text-[#555555]">·</span>
-          <span>{article.readTime}</span>
-          <span className="text-[#555555]">·</span>
-          <span>{article.publishDate}</span>
-        </div>
+        {/* Category & Read Time Kicker with Accessible Breadcrumbs */}
+        <nav aria-label="Breadcrumb navigation" className="flex items-center justify-center flex-wrap gap-2 text-xs font-mono tracking-widest uppercase mb-4 font-semibold">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate ? onNavigate({ type: 'home' }) : onBackToBlog();
+            }}
+            aria-label="Return to Throttle Culture Home"
+            className="text-[#888888] hover:text-[#FF5A1F] transition-colors"
+          >
+            HOME
+          </a>
+          <span className="text-[#444444]">/</span>
+          <a
+            href={`/journal/${article.category}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate ? onNavigate({ type: 'journal', category: article.category }) : onBackToBlog();
+            }}
+            aria-label={`Browse all ${article.categoryLabel} articles`}
+            className="text-[#FF5A1F] hover:text-white transition-colors"
+          >
+            {article.categoryLabel}
+          </a>
+          <span className="text-[#444444]">·</span>
+          <span className="text-[#777777]">{article.readTime}</span>
+          <span className="text-[#444444]">·</span>
+          <span className="text-[#777777]">{article.publishDate}</span>
+        </nav>
 
         {/* Headline */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-[#F5F5F5] uppercase leading-[1.05] tracking-tight">
@@ -264,7 +381,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                     {article.keyTakeaways.map((takeaway, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <span className="text-[#FF5A1F] font-bold font-mono">▸</span>
-                        <span className="leading-relaxed">{takeaway}</span>
+                        <span className="leading-relaxed">{renderFormattedText(takeaway)}</span>
                       </li>
                     ))}
                   </ul>
@@ -283,7 +400,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                     {section.heading}
                   </h2>
 
-                  {/* Paragraphs with Drop-Cap on first section */}
+                  {/* Paragraphs with Drop-Cap on first section and Markdown Internal Links */}
                   <div className="space-y-5 text-base sm:text-lg text-[#C8C8C8] leading-[1.8] font-normal">
                     {section.paragraphs.map((para, pIdx) => {
                       const isFirst = sIdx === 0 && pIdx === 0;
@@ -296,7 +413,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                               : 'leading-relaxed'
                           }
                         >
-                          {para}
+                          {renderFormattedText(para)}
                         </p>
                       );
                     })}
@@ -314,7 +431,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                     </blockquote>
                   )}
 
-                  {/* Safety / Pro Tip / Wrench Tip Callout Box */}
+                  {/* Safety / Pro Tip / Wrench Tip Callout Box with Internal Links */}
                   {section.callout && (
                     <div
                       className={`my-8 p-6 border ${
@@ -348,7 +465,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                         </span>
                       </div>
                       <p className="text-sm text-[#D0D0D0] leading-relaxed">
-                        {section.callout.text}
+                        {renderFormattedText(section.callout.text)}
                       </p>
                     </div>
                   )}
@@ -370,19 +487,59 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                     </div>
                   )}
 
-                  {/* Bullet Points */}
+                  {/* Bullet Points with internal link support */}
                   {section.bulletPoints && (
                     <ul className="my-6 space-y-2.5">
                       {section.bulletPoints.map((point, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2.5 text-sm text-[#C0C0C0]">
                           <span className="w-1.5 h-1.5 bg-[#FF5A1F] rounded-full mt-2 shrink-0" />
-                          <span>{point}</span>
+                          <span>{renderFormattedText(point)}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                 </section>
               ))}
+
+              {/* In-Article Internal Reading & Connected Dispatches Hub */}
+              <div className="p-6 bg-[#131313] border border-[#252525]">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2.5 h-2.5 bg-[#FF5A1F]" />
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#FF5A1F] font-bold">
+                    CONNECTED DISPATCHES & INTERNAL REFERENCES
+                  </span>
+                </div>
+                <p className="text-xs text-[#A0A0A0] mb-4 leading-relaxed">
+                  Continue exploring related technical tutorials, motorcycle tests, and safety physics from our editorial desk:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {relatedArticles.slice(0, 2).map((rel) => (
+                    <a
+                      key={rel.id}
+                      href={`/article/${rel.slug}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onSelectArticle(rel.slug);
+                      }}
+                      aria-label={`Read related report: ${rel.title}`}
+                      className="group p-4 bg-[#181818] hover:bg-[#202020] border border-[#2B2B2B] hover:border-[#FF5A1F]/60 transition-all flex flex-col justify-between block cursor-pointer"
+                    >
+                      <div>
+                        <span className="text-[10px] font-mono text-[#FF5A1F] uppercase font-semibold">
+                          {rel.categoryLabel}
+                        </span>
+                        <h4 className="text-sm font-display font-bold text-white group-hover:text-[#FF5A1F] transition-colors mt-1 line-clamp-2">
+                          {rel.title}
+                        </h4>
+                      </div>
+                      <span className="text-[11px] font-mono text-[#777777] mt-3 group-hover:text-white transition-colors flex items-center gap-1">
+                        <span>Read Technical Report</span>
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
 
               {/* Tags Section */}
               <div className="pt-8 border-t border-[#222222]">
@@ -407,7 +564,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   referrerPolicy="no-referrer"
                   className="w-16 h-16 rounded-full object-cover border-2 border-[#FF5A1F] shrink-0"
                 />
-                <div className="text-center sm:text-left">
+                <div className="text-center sm:text-left flex-1">
                   <div className="text-xs font-mono text-[#FF5A1F] uppercase font-semibold">
                     Written by
                   </div>
@@ -420,6 +577,20 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   </p>
                   <div className="text-[11px] font-mono text-[#777777] mt-2">
                     Current Stable: <span className="text-[#FF5A1F]">{article.author.bike}</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-[#1F1F1F]">
+                    <a
+                      href={`/journal/${article.category}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate ? onNavigate({ type: 'journal', category: article.category }) : onBackToBlog();
+                      }}
+                      aria-label={`Explore more stories in ${article.categoryLabel}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FF5A1F] hover:text-white transition-colors"
+                    >
+                      <span>Explore all stories in {article.categoryLabel}</span>
+                      <span>→</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -467,6 +638,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   e.preventDefault();
                   onSelectArticle(prevArticle.slug);
                 }}
+                aria-label={`Read previous story: ${prevArticle.title}`}
                 className="group flex flex-col items-start text-left w-full cursor-pointer block"
               >
                 <span className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#707070] group-hover:text-[#FF5A1F] transition-colors mb-2">
@@ -492,6 +664,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   e.preventDefault();
                   onSelectArticle(nextArticle.slug);
                 }}
+                aria-label={`Read next story: ${nextArticle.title}`}
                 className="group flex flex-col items-end text-right w-full cursor-pointer block"
               >
                 <span className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#707070] group-hover:text-[#FF5A1F] transition-colors mb-2">
@@ -529,9 +702,10 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               e.preventDefault();
               onBackToBlog();
             }}
+            aria-label="View all stories in the motorcycle journal archive"
             className="text-xs font-bold uppercase tracking-wider text-[#FF5A1F] hover:text-white transition-colors cursor-pointer"
           >
-            All Stories →
+            <span>View All Journal Stories →</span>
           </a>
         </div>
 

@@ -26,6 +26,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       <a
         href={articleUrl}
         onClick={handleClick}
+        aria-label={`Read article: ${article.title}`}
         className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col md:flex-row overflow-hidden cursor-pointer block"
       >
         <div className="md:w-5/12 aspect-[16/10] md:aspect-auto relative overflow-hidden">
@@ -79,6 +80,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       <a
         href={articleUrl}
         onClick={handleClick}
+        aria-label={`Read article: ${article.title}`}
         className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 p-4 flex gap-4 overflow-hidden cursor-pointer block"
       >
         <div className="w-24 h-24 shrink-0 overflow-hidden relative">
@@ -113,6 +115,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
     <a
       href={articleUrl}
       onClick={handleClick}
+      aria-label={`Read article: ${article.title}`}
       className="group relative bg-[#131313] hover:bg-[#171717] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col overflow-hidden cursor-pointer block"
     >
       {/* Article thumbnail with zoom effect */}

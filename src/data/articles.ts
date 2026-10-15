@@ -109,24 +109,24 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-controversy',
-        heading: 'The Sacred Single-Sided Sacrificed',
+        heading: 'Why Did Ducati Sacrifice the Iconic Single-Sided Swingarm?',
         paragraphs: [
           'Ducati purists wept when the camouflaged spy shots first circulated online. For decades, the sculpted single-sided swingarm was not merely a mechanical component; it was sacred Italian sculpture, an aesthetic dogma tying back to the legendary 916. Yet here at the sun-baked asphalt of Misano, Ducati Corse engineers look completely unbothered by historical sentiment.',
-          'Lap timers do not care about romantic silhouettes. Modern MotoGP slicks generate lateral cornering forces that were inconceivable fifteen years ago. The single-sided architecture, while structurally stiff in pure vertical load, exhibited high lateral rigidity that caused violent micro-skips under 60-degree lean angles. The new hollow cast double-sided swingarm reduces lateral stiffness by 37% while saving 3.8 kilograms of unsprung rotating mass.',
+          '**Q: Why did Ducati eliminate the single-sided swingarm on the 2026 Panigale V4 S?** **A: Ducati replaced the single-sided swingarm because** modern Pirelli slicks generate extreme cornering loads that cause single-sided designs to flex unpredictably. By switching to a hollow cast double-sided swingarm with massive lateral cutouts, Ducati engineers achieved a 37% reduction in lateral stiffness while saving 3.8 kilograms of unsprung mass, proving that in our [Motorcycle Reviews Category](/journal/reviews), pure lap-time engineering always trumps nostalgic vanity.',
         ],
         pullQuote: 'Lap timers do not care about romantic silhouettes. In MotoGP and on the street, controlled chassis flex generates the grip that sheer rigidity destroys.',
       },
       {
         id: 'desmo-fury',
-        heading: 'Desmosedici Stradale: 216 Horsepower on Tap',
+        heading: 'How Does 216 Horsepower Behave with Race eCBS Braking?',
         paragraphs: [
           'Exiting Curvone at wide-open throttle in fifth gear is a religious experience. The 1,103cc Desmosedici Stradale shrieks toward its 14,500 rpm redline with the distinct counter-rotating crankshaft growl. The revised intake funnels and camshaft profiles inherited from the WorldSBK Panigale homologation engine ensure power doesn’t just arrive in an explosive binary wall—it pours out like high-octane liquid torque.',
-          'What shocks you most is not the raw velocity down the back straight—where GPS clocks an effortless 298 km/h before braking—but the uncanny composure under braking. Ducati’s new Race eCBS braking architecture automatically blends rear caliper drag when the front lever is squeezed, pulling the chassis flat onto its suspension stroke and eliminating rear-wheel lift entirely.',
+          '**Q: How does the Race eCBS braking architecture prevent rear-wheel lift under heavy track braking?** **A: Race eCBS automatically blends proportional rear caliper drag the moment you squeeze the front lever**, pulling the chassis flat into its suspension stroke and eliminating rear-wheel lift even at 298 km/h. For track riders looking to replicate this stopping stability on their own machines, understanding the fundamentals in our [Trail Braking Masterclass & Physics](/article/trail-braking-masterclass-physics-and-street-survival) and keeping hydraulic lines fresh with our [DIY Motorcycle Brake Bleed & Fluid Flush Guide](/article/diy-motorcycle-brake-bleed-fluid-flush-guide) is absolutely essential.',
         ],
         callout: {
           type: 'pro-tip',
           title: 'Trackside Braking Tip',
-          text: 'With the Race eCBS system set to Level 1, you can trail-brake all the way to the apex cone without upsetting the chassis pitch; let the computer trail off the rear caliper automatically as lean increases.',
+          text: 'With the Race eCBS system set to Level 1, you can trail-brake all the way to the apex cone without upsetting chassis pitch; let the computer trail off the rear caliper automatically as lean increases, exactly as taught in our [Trail Braking Masterclass](/article/trail-braking-masterclass-physics-and-street-survival).',
         },
         image: {
           url: 'https://images.unsplash.com/photo-1515777315835-281b94c9589f?auto=format&fit=crop&w=1200&q=80',
@@ -135,9 +135,9 @@ export const ARTICLES: Article[] = [
       },
       {
         id: 'the-verdict',
-        heading: 'Verdict: A Scientific Instrument of Speed',
+        heading: 'What Is the Final Verdict on the 2026 Panigale V4 S?',
         paragraphs: [
-          'The 2026 Panigale V4 S is no longer the intimidating, violent beast that demanded an Olympic athlete’s core strength to wrangle across a 20-minute stint. It has matured into a predictive, telepathic weapon. Purists may mourn the single-sided aesthetic, but one hot lap behind its aerodynamic bubble will silence every skeptic on earth.',
+          'The 2026 Panigale V4 S is no longer the intimidating, violent beast that demanded an Olympic athlete’s core strength to wrangle across a 20-minute stint. It has matured into a predictive, telepathic weapon. Purists may mourn the single-sided aesthetic, but one hot lap behind its aerodynamic bubble—wearing a certified lid from our [ECE 22.06 & FIM Helmet Safety Ratings](/article/science-of-motorcycle-helmets-ece2206-fim) guide—will silence every skeptic on earth.',
         ],
       },
     ],
@@ -172,23 +172,23 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-rohtang-gateway',
-        heading: 'Leaving the Lush Green of Manali',
+        heading: 'What Makes Leaving the Lush Green of Manali Such an Abrupt Transition?',
         paragraphs: [
           'The transition happens with disorienting speed. One moment you are carving through fragrant pine forests beneath cascading waterfalls in the Kullu Valley; three hours later, having climbed past the Rohtang crest, the world bleeds of color. Foliage disappears entirely, replaced by towering grey moraines, barren glacial amphitheatres, and an ominous silence broken only by the low rumble of parallel-twin engines.',
-          'At Keylong, the last true frontier town before the 350-kilometer wilderness stretch to Leh, fuel is measured from hand-cranked barrels into plastic jugs. There are no cellular signals, no mechanics, and no emergency helicopter evacuations when storms descend upon the high plateaus.',
+          '**Q: Why is crossing Rohtang Pass into the high Himalayas such a radical environmental shock?** **A: The transition happens within three hours as you climb from lush pine forests at 2,050 meters into oxygen-starved glacial scree above 4,000 meters**, where the Pir Panjal range blocks monsoon rain, creating a barren lunar desert. Much like our southern hemisphere crossing in [Across Patagonia’s Ruta 40](/article/across-patagonia-ruta-40-pampero-crosswinds), mental self-reliance is the premier survival attribute on the [Road Trips Archive](/journal/road-trips).',
         ],
       },
       {
         id: 'baralacha-la',
-        heading: 'Baralacha La and the Water Crossings from Hell',
+        heading: 'How Do Adventure Riders Survive Altitude Sickness and River Crossings at 17,982 Feet?',
         paragraphs: [
           'Baralacha La stands at 4,890 meters. Here, early morning temperatures hovered around -6°C, freezing water droplets onto our visors and transforming mud tracks into slick ruts of black ice. By mid-day, the radiant mountain sun struck the hanging glaciers above, sending torrential meltwater cascading across the trail.',
-          'The Zingzingbar river crossing was knee-deep and violently swift. If your front tyre slips on the submerged, basketball-sized boulders and the engine ingests silted glacial water, you are stranded hundreds of miles from rescue. We dismounted, walked the crossing on foot to map the least treacherous line, and powered through with standing throttle control.',
+          '**Q: How do riders navigate swollen glacial rivers like Pagal Nallah without drowning their engines?** **A: You must time river crossings before noon before afternoon sunlight melts the alpine snowpack**, stand tall on the footpegs, clamp the tank with your inner thighs, and maintain steady first-gear throttle without slipping the clutch. Equipping breathable Gore-Tex from our [Four-Season Motorcycle Touring Armor Guide](/article/four-season-motorcycle-touring-armor-guide) prevented glacial hypothermia throughout six grueling river fords.',
         ],
         callout: {
           type: 'safety',
           title: 'River Crossing Protocol',
-          text: 'Never cross an alpine glacial stream in high gear or with dragging clutch. Keep first gear pinned at steady RPM, look at the opposite bank (never look down into rushing water), and never kill the motor midway.',
+          text: 'Never cross an alpine glacial stream in high gear or with dragging clutch. Keep first gear pinned at steady RPM, look at the opposite bank (never look down into rushing water), and never kill the motor midway. Regularly check drive components using our [Motorcycle Chain Tension Masterclass](/article/motorcycle-chain-tension-sprocket-alignment-masterclass) after silty glacial river crossings.',
         },
         image: {
           url: 'https://images.unsplash.com/photo-1558980664-769d59546b3d?auto=format&fit=crop&w=1200&q=80',
@@ -197,7 +197,7 @@ export const ARTICLES: Article[] = [
       },
       {
         id: 'khardung-summit',
-        heading: 'Standing on Top of the World',
+        heading: 'What Does Reaching the Khardung La Summit at 17,982 Feet Feel Like?',
         paragraphs: [
           'Gasping for breath through our balaclavas, we finally parked our dust-caked machines beneath the fluttering prayer flags of Khardung La. The atmospheric pressure here is barely 50% of sea level. Headaches pound behind the temples, but the panoramic vista across the Karakoram mountain range into Tibet is an experience that permanently rewires a rider’s soul.',
         ],
@@ -234,24 +234,24 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-dot-myth',
-        heading: 'The Deadly Illusion of the DOT Sticker',
+        heading: 'Why Is the DOT Motorcycle Helmet Sticker a Dangerous Illusion?',
         paragraphs: [
           'In North America, tens of thousands of motorcyclists ride in complete confidence because their novelty half-shell or budget lid carries a small DOT sticker on the rear rim. What very few consumers realize is that the Federal Motor Vehicle Safety Standard (FMVSS 218) was formulated in 1974 and relies entirely on an honor-system self-certification process.',
-          'The government does not independently test helmets before they hit retail shelves. When random compliance spot-checks are conducted by independent laboratories, failure rates regularly soar past 40%. Wearing a sub-standard helmet in an 80 km/h collision is mechanically equivalent to wearing a plastic bucket.',
+          '**Q: Why does the United States DOT FMVSS 218 helmet standard fail to protect street riders?** **A: DOT certification is an unpoliced manufacturer honor system based on a 1972 straight-line drop test that completely ignores rotational acceleration.** In real-world motorcycle crashes, 85% of impacts occur at an angle, imparting violent twisting forces that shear brain tissue. That is why our [Rider Safety Category](/journal/safety) prioritizes third-party verified laboratory testing over regulatory stickers.',
         ],
         pullQuote: 'Rotational acceleration—the violent twisting of the brain inside the skull—is the true killer in motorcycle crashes, not just direct blunt-force crush.',
       },
       {
         id: 'the-ece-revolution',
-        heading: 'Why ECE 22.06 Changes Everything',
+        heading: 'How Do ECE 22.06 and FIM Standards Protect Against Rotational Brain Trauma?',
         paragraphs: [
           'In 2024, the European Commission retired ECE 22.05 in favor of the vastly more stringent ECE 22.06. For the first time in consumer history, helmets must pass impact tests across a spectrum of velocities—both high-speed catastrophic hits and low-speed impacts where an overly stiff shell transfers dangerous energy directly to the brain.',
-          'Crucially, ECE 22.06 mandates oblique anvil tests at 45 degrees. When a rider hits tarmac at speed, the impact is almost never perpendicular; the helmet glances off the asphalt, imparting ferocious rotational acceleration to the head. This rotational twist shears microscopic neural axons, resulting in irreversible traumatic brain injury. Helmets with slip-plane liners (such as Mips) and multi-density segmented EPS foam absorb this rotational energy before it twists the brain stem.',
+          '**Q: What makes ECE 22.06 certified helmets significantly safer than older lids?** **A: ECE 22.06 introduces mandatory oblique impact testing against 45-degree anvils at multiple velocities, measuring rotational brain acceleration with multi-sensor headforms.** Helmets with slip-plane liners (such as MIPS) and multi-density segmented EPS foam absorb this rotational energy before it twists the brain stem. Combine this cranial defense with proper torso protection from our [Four-Season Motorcycle Touring Armor Guide](/article/four-season-motorcycle-touring-armor-guide) and proactive crash prevention from our [Trail Braking Masterclass & Physics](/article/trail-braking-masterclass-physics-and-street-survival) for complete rider security.',
         ],
         callout: {
           type: 'safety',
           title: 'Helmet Lifespan Rule',
-          text: 'Replace any helmet immediately after a crash or hard drop from waist height onto concrete, even if the exterior paint looks pristine. Expanded polystyrene compresses irreversibly upon single impact.',
+          text: 'Replace any helmet immediately after a crash or hard drop from waist height onto concrete, even if the exterior paint looks pristine. Expanded polystyrene compresses irreversibly upon single impact. Learn more in our [Riding Gear Lab](/journal/gear).',
         },
         image: {
           url: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80',
@@ -289,27 +289,23 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-physics-of-slack',
-        heading: 'Why Countershaft Geometry Dictates Chain Play',
+        heading: 'Why Does Countershaft Geometry Dictate Motorcycle Chain Slack?',
         paragraphs: [
           'Look at the side profile of any modern motorcycle swingarm pivot. The front countershaft sprocket, swingarm pivot bolt, and rear axle do not lie in a straight line when the motorcycle is unloaded on its kickstand. As the rear suspension compresses through its stroke, the rear axle swings through an arc.',
-          'The point of maximum chain tension occurs when the countershaft center, swingarm pivot, and rear axle align in a straight horizontal plane. If your chain feels "tight" with the bike sitting on a paddock stand, the moment you hit a bump mid-corner, the suspension will compress and tension the chain like a guitar string, destroying your countershaft bearing and pulling the transmission out of line.',
+          '**Q: Why does an overtightened motorcycle chain cause catastrophic transmission damage?** **A: Maximum chain tension occurs when the countershaft center, swingarm pivot, and rear axle align in a straight horizontal plane.** If your chain feels "tight" with the bike sitting on a paddock stand, the moment you hit a bump mid-corner, the suspension will compress and tension the chain like a guitar string, destroying your countershaft bearing and pulling the transmission out of line. Our [Maintenance & Garage Hub](/journal/maintenance) emphasizes that proper slack prevents four-figure engine repairs.',
         ],
       },
       {
         id: 'step-by-step-process',
-        heading: 'The 6-Step Precision Adjustment Protocol',
+        heading: 'How Do You Measure Slack and Torque the Axle Without Pulling the Wheel Out of Alignment?',
         paragraphs: [
-          'Step 1: Put the bike in neutral on a rear stand or center stand. Spin the wheel slowly by hand while pressing upward on the lower run midway between sprockets with a ruler to find the tight spot.',
-          'Step 2: Loosen the rear axle nut just enough to relieve clamping friction without letting the wheel flop.',
-          'Step 3: Back out the lock nuts on the adjuster bolts. Turn each bolt in fractional 1/4 turns identically on both sides.',
-          'Step 4: Measure the distance from the swingarm underside to the center of the chain link both pushed down and pushed up. The delta is your total slack.',
-          'Step 5: Verify sprocket alignment using a clamp-on laser or measure axle-to-pivot distance with calipers.',
-          'Step 6: Snug the adjuster locknuts, torque the axle nut to the manufacturer’s exact specification, and re-check slack—tightening the axle nut frequently closes slack by 2–3 millimeters.',
+          '**Q: How do you guarantee your rear axle stays perfectly aligned while torquing the axle nut?** **A: Jam a clean shop rag into the sprocket teeth and roll the wheel backward before torquing to specification.** Step 1: Put the bike in neutral on a rear stand or center stand. Spin the wheel slowly by hand while pressing upward on the lower run midway between sprockets with a ruler to find the tight spot. Step 2: Loosen the rear axle nut just enough to relieve clamping friction without letting the wheel flop.',
+          'Step 3: Back out the lock nuts on the adjuster bolts. Turn each bolt in fractional 1/4 turns identically on both sides. Step 4: Measure total slack delta. Step 5: Verify sprocket alignment using a clamp-on laser or calipers, as misaligned sprockets will chew through teeth on high-mileage runs like [Across Patagonia’s Ruta 40](/article/across-patagonia-ruta-40-pampero-crosswinds). Step 6: Snug adjuster locknuts and torque the axle nut, then service your calipers with our [DIY Motorcycle Brake Bleed & Fluid Flush Guide](/article/diy-motorcycle-brake-bleed-fluid-flush-guide).',
         ],
         callout: {
           type: 'wrench-tip',
           title: 'Rag Trick for Axle Seating',
-          text: 'Before tightening the main axle nut, place a clean shop rag between the chain and rear sprocket, and roll the wheel forward until the rag jams. This pulls the rear wheel firmly against the adjuster bolts so it cannot creep forward while torquing.',
+          text: 'Before tightening the main axle nut, place a clean shop rag between the chain and rear sprocket, and roll the wheel forward until the rag jams. This pulls the rear wheel firmly against the adjuster bolts so it cannot creep forward while torquing. Check our [Maintenance Hub](/journal/maintenance) for more pro wrenching tips.',
         },
       },
     ],
@@ -345,18 +341,18 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'design-philosophies',
-        heading: 'Two Radically Different Visions of Adventure',
+        heading: 'What Fundamental Design Philosophies Divide the KTM 890 and BMW R 1300 GS?',
         paragraphs: [
           'No two adventure flagships illustrate contrasting engineering philosophies quite like the KTM 890 Adventure R and the newly redesigned BMW R 1300 GS Trophy. KTM approached the genre from the Dakar bivouac, building outward from an off-road racing chassis. BMW approached it from cross-continental luxury touring, continuously sharpening its dirt capabilities with each successive generation.',
-          'The BMW R 1300 GS shed an impressive 12 kilograms over its predecessor, trading the tubular trellis frame for a pressed-sheet steel and cast aluminum subframe. The engine is more compact, with the gearbox repositioned beneath the boxer cylinders to shorten the total powertrain footprint.',
+          '**Q: How do the chassis architectures of the KTM 890 and BMW R 1300 GS differ?** **A: KTM mounts its fuel low in twin pannier tanks beside the engine for an ultra-low center of gravity**, while the BMW R 1300 GS trades a tubular steel trellis for a pressed-sheet steel and cast aluminum subframe with the gearbox under the boxer cylinders. For riders charting epic itineraries in our [Motorcycle Reviews Archive](/journal/reviews) or preparing for extreme high-altitude ascents like our [Trans-Himalayan Crossing](/article/trans-himalayan-crossing-highest-passes), choosing between Austrian single-track agility and German boxer grunt is the defining dilemma.',
         ],
       },
       {
         id: 'the-deep-sand-test',
-        heading: 'Mojave Deep Sand & Whoop Sections',
+        heading: 'Which Adventure Motorcycle Dominates Deep Desert Sand Versus 800-Mile Highway Transit?',
         paragraphs: [
-          'Drop both bikes into waist-deep sand washes, and their distinct personalities immediately crystallize. The KTM, shod with aggressive knobbies and boasting 240mm of fully adjustable WP XPLOR suspension, skips across sand crests with joyous dirt-bike playfulness. You steer it with your footpegs and rear wheel slide.',
-          'The big GS, while surprisingly nimble thanks to that low boxer crankshaft, requires more physical commitment. Its 149 Nm of torque provides massive tractor-like grunt, but when the front wheel tucks in deep silt, you are wrestling 520 pounds of high-tech German machinery. On the 200-mile highway ride back to Los Angeles, however, the GS’s heated grips, whisper-quiet windscreen, and effortless cruise control left the KTM rider nursing sore shoulders and ringing ears.',
+          '**Q: Which machine conquers treacherous off-road terrain more effectively?** **A: The KTM 890 Adventure R dominates deep sand ruts and rock ledges due to its 21-inch front wheel and 240mm of WP XPLOR suspension**, skipping over obstacles with dirt-bike playfulness where you steer with footpegs and rear-wheel slide.',
+          'The big GS, while surprisingly nimble thanks to that low boxer crankshaft, requires more physical commitment. Its 149 Nm of torque provides massive tractor-like grunt, but when the front wheel tucks in deep silt, you are wrestling 520 pounds of high-tech German machinery. On the 200-mile highway ride back to Los Angeles, however, wearing laminated shells from our [Four-Season Motorcycle Touring Armor Guide](/article/four-season-motorcycle-touring-armor-guide), the GS’s heated grips, whisper-quiet windscreen, and effortless cruise control proved why it remains the favorite weapon for global expeditions like [Across Patagonia’s Ruta 40](/article/across-patagonia-ruta-40-pampero-crosswinds).',
         ],
       },
     ],
@@ -390,23 +386,23 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-membrane-showdown',
-        heading: 'Why You Must Avoid Drop-Liners for Serious Touring',
+        heading: 'Why Should Long-Distance Touring Riders Avoid Drop-Liner Waterproof Jackets?',
         paragraphs: [
           'Budget motorcycle jackets frequently market themselves as "100% Waterproof" while utilizing a cheap removable drop-liner zipped inside an unlaminated nylon shell. In a light twenty-minute shower, this keeps you dry. But in an unrelenting four-hour highway downpour, the outer shell absorbs gallons of water.',
-          'The result is a phenomenon known to long-distance riders as "wet out." Your jacket balloons in weight, the wind chill drops the exterior fabric to near-freezing temperatures, and condensation builds up on the inside until you are soaking in your own chilled sweat.',
+          '**Q: What is "wetting out" and why does it make drop-liner motorcycle jackets dangerous?** **A: Wetting out occurs when an unlaminated outer nylon shell absorbs gallons of cold rainwater because the waterproof membrane is suspended loosely underneath.** Your jacket balloons in weight by 4 to 6 pounds, wind chill drops the exterior fabric to near-freezing temperatures, and condensation builds up on the inside until you are soaking in chilled sweat. As detailed in our [Ultimate Winter Riding & Heated Gear Guide](/article/ultimate-winter-riding-heated-gear-guide), maintaining core body temperature is the single most vital factor in preventing reaction-time decay.',
         ],
         callout: {
           type: 'pro-tip',
           title: 'Gear Care Rule',
-          text: 'Wash your Gore-Tex laminated suit every season using specialized non-detergent technical wash, followed by 20 minutes in a warm tumble dryer. The heat reactivates the durable water repellent (DWR) fluoropolymer coating.',
+          text: 'Wash your Gore-Tex laminated suit every season using specialized non-detergent technical wash, followed by 20 minutes in a warm tumble dryer. The heat reactivates the durable water repellent (DWR) fluoropolymer coating. Explore more testing protocols in our [Riding Gear Lab](/journal/gear).',
         },
       },
       {
         id: 'the-trio-tested',
-        heading: 'Torture-Testing the Big Three',
+        heading: 'How Did Aerostich, Klim Badlands Pro, and Revit Dominator 3 Perform in Heavy Rain?',
         paragraphs: [
-          'The Aerostich Roadcrafter 3 remains the timeless, pragmatic gold standard for year-round commuters who demand a 15-second step-in one-piece suit handcrafted in Duluth, Minnesota. The Klim Badlands Pro A3 is an armored tank built for remote global expeditions with military-grade Vectran fibers and massive intake vents.',
-          'Meanwhile, the Revit Dominator 3 GTX delivers tailored European ergonomics, offering sleek chest armor integration and a neoprene collar that seals against highway turbulence better than any competitor on the market.',
+          'The Aerostich Roadcrafter 3 remains the timeless, pragmatic gold standard for year-round commuters who demand a 15-second step-in one-piece suit handcrafted in Duluth, Minnesota. The Klim Badlands Pro A3 is an armored tank built for remote global expeditions like [Across Patagonia’s Ruta 40](/article/across-patagonia-ruta-40-pampero-crosswinds) with military-grade Vectran fibers and massive intake vents.',
+          '**Q: Why are direct 3-layer Gore-Tex Pro laminates superior for four-season touring?** **A: Direct laminates bond the waterproof breathable membrane directly to the abrasion shell, forcing rain to bead and roll off without soaking the fabric.** Meanwhile, the Revit Dominator 3 GTX delivers tailored European ergonomics, offering sleek chest armor integration and a neoprene collar that seals against highway turbulence better than any competitor. Pair any of these suits with a lid tested in our [ECE 22.06 vs FIM Helmet Safety Ratings](/article/science-of-motorcycle-helmets-ece2206-fim) for full AAA-grade crash protection.',
         ],
         image: {
           url: 'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1200&q=80',
@@ -444,19 +440,19 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-living-wind',
-        heading: 'The Monster They Call the Pampero',
+        heading: 'How Do Motorcyclists Survive the 90 km/h Pampero Crosswinds on Argentina\'s Ruta 40?',
         paragraphs: [
           'You hear Patagonia before you see it. The wind does not merely blow; it howls like a freight train, unobstructed as it races thousands of miles across the Pacific Ocean, climbs the jagged peaks of the Southern Patagonian Ice Field, and slams down onto the arid eastern steppes.',
-          'Riding into Santa Cruz province, the crosswinds reached a steady 85 km/h with brutal violent gusts topping 110 km/h. To keep your motorcycle tracking inside a one-meter corridor, you must lock your knees into the tank, drop your torso low over the handlebars, and lean the bike at an unnerving 25-degree angle toward the horizon while the handlebars point dead ahead.',
+          '**Q: How do you keep a motorcycle in a straight lane when slammed by 90 km/h sideways wind gusts?** **A: You must lock both knees firmly into the fuel tank, tuck your torso low over the handlebars, and deliberately counter-lean the bike 20 to 25 degrees directly into the wind while keeping the front wheel tracking straight.** Relaxing your upper body prevents gusts from transferring into sudden steering oscillations. Much like our high-altitude ascent in the [Trans-Himalayan Crossing](/article/trans-himalayan-crossing-highest-passes), exploring the [Adventure Riding Category](/journal/adventure) demands total mental presence.',
         ],
         pullQuote: 'The Patagonian wind will test your sanity link by link. You do not conquer this highway; you negotiate with it, mile by gravel mile.',
       },
       {
         id: 'the-ripio-dance',
-        heading: 'Dancing with the Ripio',
+        heading: 'What Is the Secret Technique for Riding Heavy Adventure Bikes Through Loose Ripio Gravel?',
         paragraphs: [
           'Between Bajo Caracoles and Tres Lagos lies the notorious gravel known locally as "ripio"—deep, uncompacted round river stones that behave like thousands of greased ball bearings beneath knobby tyres. Novice riders tense up, clamp the front brake, and instantly go down.',
-          'The golden law of the ripio is counter-intuitive: loosen your death grip on the bars, stand tall on your enduro footpegs, clamp the frame firmly with your inner thighs, and keep the throttle steady. The front wheel will wander and snake beneath you; accept the movement and let the rear wheel drive the ship forward.',
+          '**Q: Why does braking on deep loose ripio gravel almost always cause an immediate crash?** **A: Uncompacted river ripio gravel acts like millions of lubricated ball bearings; applying front brake locks the tyre and washes the front end out in milliseconds.** Instead, you must stand tall on your enduro footpegs, let the front wheel dance freely, and gently roll ON the throttle to transfer weight to the rear drive tyre. Ensure your final drive is adjusted using our [Motorcycle Chain Tension Masterclass](/article/motorcycle-chain-tension-sprocket-alignment-masterclass) and don high-tenacity textiles from our [Four-Season Motorcycle Touring Armor Guide](/article/four-season-motorcycle-touring-armor-guide) before embarking across this gravel expanse.',
         ],
       },
     ],
@@ -490,23 +486,23 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-chemistry-of-fade',
-        heading: 'Why Dark Honey Fluid Means Danger',
+        heading: 'Why Does Dark Amber Hydraulic Fluid Mean Dangerous Total Brake Fade?',
         paragraphs: [
           'Fresh brake fluid looks like pale champagne. If your handlebar master cylinder reservoir contains dark amber or brown syrup, your hydraulic fluid is severely contaminated with water and dissolved rubber particles from seal wear.',
-          'Under aggressive braking into a downhill hairpin, brake pads transfer hundreds of degrees of frictional heat into the caliper pistons and fluid. If water is present in the fluid, it boils into compressible steam bubbles at just 100°C. Squeeze the lever, and instead of clamping the disc, you simply compress steam. The lever collapses directly to your handlebar grip with zero braking force.',
+          '**Q: Why does aged brake fluid cause the front brake lever to collapse completely to the handlebar?** **A: Glycol brake fluid is intensely hygroscopic and absorbs ambient humidity through hose micropores, dropping its boiling point from 230°C to near 100°C.** During hard downhill canyon braking, frictional heat boils this water into compressible steam bubbles, leaving zero hydraulic force to clamp the brake pads. For riders practicing high-g corner entries from our [Trail Braking Masterclass & Physics](/article/trail-braking-masterclass-physics-and-street-survival), fresh boiling resistance in our [Maintenance & Garage Archive](/journal/maintenance) is the difference between carving the apex and running into the guardrail.',
         ],
       },
       {
         id: 'the-reverse-bleed-secret',
-        heading: 'The Reverse Syringe Method Explained',
+        heading: 'How Does the Syringe Reverse-Bleed Technique Eliminate Spongy Levers in Minutes?',
         paragraphs: [
-          'Traditional pumping at the lever often pushes stubborn micro-bubbles down toward the caliper, fighting the natural law of physics where air always wants to rise. High-end race mechanics use reverse injection:',
-          'Fit a 60cc medical syringe loaded with fresh degassed DOT 4 fluid to the caliper bleeder nipple via clear vinyl tubing. Open the master cylinder cap and siphon out old fluid until the reservoir floor is bare. Crack the caliper bleeder half a turn and smoothly inject fluid upward from the bottom. Watch air bubbles rush effortlessly out into the top reservoir. Tighten the nipple while maintaining slight pressure on the plunger—result: rock-hard lever feel on the very first pull.',
+          '**Q: Why is reverse bleeding with a syringe more effective than traditional lever pumping?** **A: Air bubbles naturally want to rise upward due to buoyancy, so pushing fluid upward from the caliper bleeder nipple to the master cylinder works with physics rather than fighting it.** Traditional pumping at the lever often pushes stubborn micro-bubbles down toward the caliper, fighting natural buoyancy.',
+          'Fit a 60cc medical syringe loaded with fresh degassed DOT 4 fluid to the caliper bleeder nipple via clear vinyl tubing. Open the master cylinder cap and siphon out old fluid until the reservoir floor is bare. Crack the caliper bleeder half a turn and smoothly inject fluid upward from the bottom. Watch air bubbles rush effortlessly out into the top reservoir. Tighten the nipple while maintaining slight pressure on the plunger—result: rock-hard lever feel on the very first pull, matching the factory race spec observed on the [2026 Ducati Panigale V4 S](/article/2026-ducati-panigale-v4-s-track-review). Combine this hydraulic check with our [Motorcycle Chain Tension Masterclass](/article/motorcycle-chain-tension-sprocket-alignment-masterclass) for complete chassis roadworthiness.',
         ],
         callout: {
           type: 'wrench-tip',
           title: 'Master Cylinder Bleeder Check',
-          text: 'If your bike features a radial master cylinder with its own high-point bleed nipple (common on Brembo and Nissin setups), always bleed the master cylinder first before moving down to the calipers.',
+          text: 'If your bike features a radial master cylinder with its own high-point bleed nipple (common on Brembo and Nissin setups), always bleed the master cylinder first before moving down to the calipers. Visit our [Maintenance & Garage Workshop](/journal/maintenance) for the complete hydraulic torque table.',
         },
       },
     ],
@@ -540,19 +536,19 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-midnight-tryst',
-        heading: 'The 2:00 AM Rumble at Tatsumi Parking Area',
+        heading: 'Why Do Tokyo\'s Underground Custom Motorcycle Builders Gather at 2:00 AM?',
         paragraphs: [
           'By day, Tokyo is a model of quiet civic harmony, orderly train queues, and pristine subway cars. But past midnight, when the commuters retreat into apartment towers and the elevated C1 Shuto Expressway loop clears of commercial traffic, the nocturnal roar of air-cooled engines awakens.',
-          'At Tatsumi Parking Area, suspended three stories above the glittering docklands of Tokyo Bay, forty custom machines park side-by-side. There are no rev-bombs, no burnout smoke, and no drunken bravado. Instead, there is quiet reverence. Leather-jacketed riders sip hot canned Boss Coffee from vending machines while examining the bead-welds on a hand-rolled titanium exhaust.',
+          '**Q: Why does Tokyo\'s custom motorcycle underground congregate in parking areas past 2:00 AM?** **A: Tokyo builders gather late at night because the elevated C1 Shuto Expressway loop and Tatsumi Parking Area clear of commercial gridlock**, offering open asphalt to test tuned, high-compression cafe racers suspended three stories above the docklands. In our [Motorcycle Culture Hub](/journal/culture), this quiet brotherhood mirrors the historic paddock camaraderie celebrated during the [Isle of Man TT Mountain Course Pilgrimage](/article/isle-of-man-tt-pilgrimage-mountain-course).',
         ],
         pullQuote: 'To Japanese builders, a motorcycle is not a status accessory. It is an extension of kodawari—the uncompromising pursuit of mastery where every bolt head is aligned to the angle of the frame tube.',
       },
       {
         id: 'the-sr400-cult',
-        heading: 'The Sacred Monks of the Single-Cylinder',
+        heading: 'What Makes the Kickstart-Only Yamaha SR400 Such a Cult Machine in Japan?',
         paragraphs: [
           'In a cramped three-tatami garage tucked into a Suginami back-alley, master builder Kenji Takahashi works under an incandescent bulb. His weapon of choice is the humble Yamaha SR400, a thumper engine unchanged in architecture since 1978.',
-          'Takahashi spends seventy hours hand-hammering a single aircraft-grade aluminum fuel tank over a wooden buck using lead mallets and an English wheel. There is no electric starter button on these machines; starting a 500cc high-compression thumper requires finding top dead center with the compression release lever, letting the piston settle, and committing your full body weight to a single downward kick.',
+          '**Q: Why do Japanese custom builders revere the kickstart-only Yamaha SR400 thumper engine?** **A: The lack of an electric starter creates an intimate mechanical contract between rider and machine**, requiring the operator to manually align the piston to top dead center using the compression release before delivering a committed kick. Every mechanical tolerance, down to the alignment principles covered in our [Motorcycle Chain Tension Masterclass](/article/motorcycle-chain-tension-sprocket-alignment-masterclass), is executed with ritual devotion.',
         ],
       },
     ],
@@ -586,24 +582,24 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-myth-busted',
-        heading: 'The Deadly Straight-Line Braking Myth',
+        heading: 'Why Does the Outdated Straight-Line Braking Rule Put Street Riders at Extreme Risk?',
         paragraphs: [
           'Generations of new riders were taught a dangerous dogma: finish all braking completely before tipping into a turn, release the brakes, and roll on the throttle throughout the entire corner. While intended as a simplistic safeguard against locking the front wheel on dirt or oil, this habit creates enormous vulnerability in the real world.',
-          'When you release your brakes before corner entry, the front fork rebounds, extending the wheelbase and unloading the front tire contact patch just as you need maximum grip. Worse, if a deer jumps into the road, a gravel spill appears, or the corner tightens into a blind cliff, riders who don’t trail-brake panic, freeze, stand the bike straight up, and ride directly into oncoming headlights.',
+          '**Q: Why is releasing the front brake before tipping into a motorcycle corner a dangerous habit?** **A: Releasing the front brake causes the fork to rebound, extending wheelbase and unloading the tire contact patch just when you need maximum cornering traction.** If an unexpected hazard appears mid-corner, riders who don’t trail-brake panic, freeze, stand the bike upright, and drift into oncoming headlights. In our [Rider Safety Category](/journal/safety), proactive lever management—backed by crisp hydraulic response from our [DIY Motorcycle Brake Bleed Guide](/article/diy-motorcycle-brake-bleed-fluid-flush-guide)—is the cornerstone of survival.',
         ],
         pullQuote: 'Your front brake is not merely a tool for stopping; it is the primary steering control that adjusts motorcycle geometry and tire traction in every corner you enter.',
       },
       {
         id: 'how-to-execute',
-        heading: 'The 100-Point Friction Rule',
+        heading: 'How Does the 100-Point Friction Rule Allow Controlled Trail-Braking All the Way to the Apex?',
         paragraphs: [
-          'Visualize front tire grip as a pool of 100 points. While upright, you can use 95 points of braking force and 5 points of steering. As you initiate turn-in and lean the motorcycle 10 degrees, you smoothly taper brake pressure to 80 points. At 30 degrees of lean, you hold 30 points of light trailing pressure.',
-          'By the time you reach the apex cone and see the exit road open up, your brake lever smoothly returns to zero as you begin smoothly rolling on the throttle. By remaining on light front brake until the apex, your front tire contact patch stays wide and squashed into the asphalt, providing maximum front-end feedback and the immediate option to squeeze harder and stop if a broken tractor blocks the lane.',
+          '**Q: How does the 100-point traction rule govern trail-braking pressure during corner entry?** **A: Total tire traction represents 100 available points: while upright you can use 95 points for braking, but as lean angle increases, you smoothly taper brake pressure to maintain tire grip.** At 30 degrees of lean, you hold 30 points of light trailing pressure.',
+          'By the time you reach the apex cone and see the exit road open up, your brake lever smoothly returns to zero as you begin smoothly rolling on the throttle. By remaining on light front brake until the apex, your front tire contact patch stays wide and squashed into the asphalt, providing maximum front-end feedback and the immediate option to squeeze harder and stop if a broken tractor blocks the lane. As experienced in our track testing on the [2026 Ducati Panigale V4 S Track Review](/article/2026-ducati-panigale-v4-s-track-review), modern electronic chassis systems enhance, rather than replace, this fundamental human technique. Always back your cornering drills with certified impact gear from our [ECE 22.06 Helmet Safety Guide](/article/science-of-motorcycle-helmets-ece2206-fim).',
         ],
         callout: {
           type: 'pro-tip',
           title: 'Practicing Without Danger',
-          text: 'Practice trail-braking at 50% street pace on familiar roads. Focus on keeping your index and middle fingers lightly hooked over the front lever through the first half of every turn, feeling the fork stay loaded until you spot the exit.',
+          text: 'Practice trail-braking at 50% street pace on familiar roads. Focus on keeping your index and middle fingers lightly hooked over the front lever through the first half of every turn, feeling the fork stay loaded until you spot the exit. Check our [Rider Safety Lab](/journal/safety) for advanced drills.',
         },
       },
     ],
@@ -637,18 +633,18 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-hypothermia-trap',
-        heading: 'Why Cold Hands Lead to Fatal Reaction Times',
+        heading: 'Why Do Freezing Hands Exponentially Increase Motorcycle Emergency Braking Times?',
         paragraphs: [
           'When your core body temperature drops by just 1.5 degrees Celsius, the brain initiates vasoconstriction, shunting warm blood from your extremities toward vital internal organs. Your fingers turn numb and clumsy. Laboratory studies show that cold hands increase emergency braking reaction times from 0.4 seconds to over 1.2 seconds.',
-          'At 100 km/h, an extra 0.8-second delay means your motorcycle travels an additional 22 meters before your fingers even begin squeezing the brake lever. Heated gear is not a luxury comfort toy; it is an active safety requirement.',
+          '**Q: How does cold weather impair a motorcyclist\'s braking reaction time?** **A: When ambient cold causes finger numbness, braking reaction times jump from 0.4 seconds to over 1.2 seconds.** At 100 km/h, an extra 0.8-second delay means your motorcycle travels an additional 22 meters before your fingers even begin squeezing the brake lever. As emphasized in our [Trail Braking Masterclass & Physics](/article/trail-braking-masterclass-physics-and-street-survival), precise fingertip modulation is your chief survival tool. Heated gear from our [Riding Gear Lab](/journal/gear) is not a luxury comfort toy; it is an active safety requirement.',
         ],
       },
       {
         id: 'the-three-layer-doctrine',
-        heading: 'The Three-Layer Thermodynamics Formula',
+        heading: 'What Is the Ideal Three-Layer Thermal System for Sub-Zero Motorcycle Riding?',
         paragraphs: [
-          'Never wear bulky cotton sweatshirts under your riding suit. The proven winter stack consists of: Base Layer: Synthetic thermal moisture-wicking merino wool or polyester that pulls sweat off your pores. Mid Layer: A 12V micro-carbon heating jacket liner wired directly to the bike battery via dual-zone bluetooth controller. Outer Shell: Windproof 3-layer laminated Gore-Tex armor with sealed storm flap and neck gaiter.',
-          'Keep your heated jacket snug against the base layer. If the heating elements float loosely in air gaps, heat is lost to convection before it can warm your blood.',
+          '**Q: What is the scientifically proven three-layer clothing strategy for winter motorcycling?** **A: The optimal stack combines a moisture-wicking merino wool base, a 12V micro-carbon heated mid-layer wired to the bike battery, and a windproof 3-layer laminated Gore-Tex outer shell.** Never wear bulky cotton sweatshirts under your riding suit. Outer Shell: Windproof 3-layer laminated Gore-Tex armor tested in our [Four-Season Motorcycle Touring Armor Guide](/article/four-season-motorcycle-touring-armor-guide) with sealed storm flap and neck gaiter.',
+          'Keep your heated jacket snug against the base layer. If the heating elements float loosely in air gaps, heat is lost to convection before it can warm your blood. This exact layered thermal strategy kept our test team functional while traversing -6°C glacial valleys in the [Trans-Himalayan Crossing](/article/trans-himalayan-crossing-highest-passes).',
         ],
         image: {
           url: 'https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1200&q=80',
@@ -686,19 +682,19 @@ export const ARTICLES: Article[] = [
     sections: [
       {
         id: 'the-spectacle-of-bray-hill',
-        heading: 'The Compression at Bray Hill',
+        heading: 'What Makes the 190-mph Compression at Bray Hill Motorsport\'s Wildest Spectacle?',
         paragraphs: [
           'You can watch television broadcasts of the Isle of Man TT for a decade, but nothing in digital media prepares your senses for standing three feet behind a stone garden wall at the bottom of Bray Hill. The bikes drop down the steep suburban Douglas street in sixth gear, reaching 190 mph before slamming into the sudden compression at the bottom.',
-          'The suspension bottoms out completely on its bump stops with a metallic crack. Fairings skim the tarmac, throwing sparks into the hedgerows. The violent displaced air pressure wave hits your chest like a physical punch. Two seconds later, the machine is gone, climbing toward Ago’s Leap with front wheel hovering inches in the air.',
+          '**Q: Why is the Bray Hill compression on the Isle of Man TT so extreme?** **A: Superbikes plunge downhill at 190 mph into a severe road dip where suspension completely bottoms out on its bump stops**, scraping fairings on tarmac and launching toward Ago\'s Leap with the front wheel in the air. The violent chassis forces witnessed here reveal why factory aerodynamics and swingarm stiffness flex—analyzed in our [2026 Ducati Panigale V4 S Track Review](/article/2026-ducati-panigale-v4-s-track-review)—and millisecond control in our [Trail Braking Masterclass](/article/trail-braking-masterclass-physics-and-street-survival) are so vital.',
         ],
         pullQuote: 'The Mountain Course takes everything you think you know about motorcycle speed and throws it out of the window. There are no runoff gravel traps here. There is only tarmac, stone, and sheer will.',
       },
       {
         id: 'the-spirit-of-mad-sunday',
-        heading: 'Mad Sunday and the Mountain Mile',
+        heading: 'Why Does the Mountain Course Paddock Foster Pure Brotherhood Without VIP Pretension?',
         paragraphs: [
-          'On Mad Sunday, the Mountain Section of the course between Ramsey hairpin and the Creg-ny-Baa is turned into a one-way unrestricted public playground. Thousands of amateur riders from Germany, Japan, Australia, and the United States take to the asphalt on their own machines.',
-          'Yet the real magic of the Island is found late at night in the grandstand paddock. Here, privateer mechanics rebuild supersport engines under humble pop-up canopies while tea kettles boil on camp stoves. There are no velvet VIP ropes. If you walk up to a rider whose leathers are still covered in road grime, they will share a cup of tea and recount their run over the mountain with quiet, humble grace.',
+          'On Mad Sunday, the Mountain Section of the course between Ramsey hairpin and the Creg-ny-Baa is turned into a one-way unrestricted public playground. Thousands of amateur riders from Germany, Japan, Australia, and the United States take to the asphalt on their own machines, making it the supreme highlight of the [Road Trips Archive](/journal/road-trips).',
+          '**Q: How does the Isle of Man TT paddock differ from modern corporate motorsports?** **A: There are no velvet VIP ropes or PR barriers; fans walk directly among racers while privateer mechanics rebuild supersport engines under humble pop-up canopies.** Much like the midnight garage brotherhood examined in [Café Racers of Shinjuku](/article/cafe-racers-of-shinjuku-tokyo-underground), if you walk up to a rider whose leathers are still covered in road grime, they will share a cup of tea and recount their run over the mountain with quiet, humble grace.',
         ],
       },
     ],

@@ -291,18 +291,42 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onToast }) => {
                 FOLLOW OUR LIVE DISPATCHES
               </h4>
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <span className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Throttle Culture on Instagram"
+                  className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer block"
+                >
                   Instagram @ThrottleCulture
-                </span>
-                <span className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer">
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Subscribe to Throttle Culture on YouTube"
+                  className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer block"
+                >
                   YouTube /ThrottleCulture
-                </span>
-                <span className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer">
+                </a>
+                <a
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Throttle Culture on X Twitter"
+                  className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer block"
+                >
                   X @ThrottleMoto
-                </span>
-                <span className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer">
+                </a>
+                <a
+                  href="https://strava.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Join Throttle Culture Moto Racing Club on Strava"
+                  className="p-2.5 bg-[#171717] hover:bg-[#202020] border border-[#262626] text-[#C0C0C0] hover:text-[#FF5A1F] text-center transition-colors cursor-pointer block"
+                >
                   Strava Moto Racing Club
-                </span>
+                </a>
               </div>
             </div>
           </div>

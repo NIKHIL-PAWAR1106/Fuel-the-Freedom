@@ -171,6 +171,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   e.preventDefault();
                   onNavigate({ type: 'journal' });
                 }}
+                aria-label="Read our motorcycle reviews in The Rider's Journal"
                 className="w-full py-3.5 bg-[#FF5A1F] hover:bg-[#E04812] text-black font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer block"
               >
                 READ OUR REVIEWS
@@ -181,6 +182,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   e.preventDefault();
                   onNavigate({ type: 'contact' });
                 }}
+                aria-label="Pitch a ride dispatch to the Throttle Culture editorial desk"
                 className="w-full py-3.5 bg-[#1C1C1C] hover:bg-[#252525] text-white border border-[#333333] font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer block"
               >
                 PITCH A RIDE DISPATCH

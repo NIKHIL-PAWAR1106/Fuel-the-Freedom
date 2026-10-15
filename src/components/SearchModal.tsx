@@ -152,13 +152,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </div>
 
               {filteredArticles.map((art) => (
-                <div
+                <a
                   key={art.id}
-                  onClick={() => {
+                  href={`/article/${art.slug}`}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onSelectArticle(art.slug);
                     onClose();
                   }}
-                  className="group p-3.5 bg-[#171717] hover:bg-[#202020] border border-[#242424] hover:border-[#FF5A1F]/50 transition-all cursor-pointer flex items-center justify-between gap-4"
+                  aria-label={`Read search result: ${art.title}`}
+                  className="group p-3.5 bg-[#171717] hover:bg-[#202020] border border-[#242424] hover:border-[#FF5A1F]/50 transition-all cursor-pointer flex items-center justify-between gap-4 block"
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 text-[10px] font-mono tracking-wider uppercase text-[#FF5A1F]">
@@ -177,7 +180,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     </p>
                   </div>
                   <ArrowRight className="w-4 h-4 text-[#555555] group-hover:text-[#FF5A1F] group-hover:translate-x-1 transition-all shrink-0" />
-                </div>
+                </a>
               ))}
             </div>
           )}
