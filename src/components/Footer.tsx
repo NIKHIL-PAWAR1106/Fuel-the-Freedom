@@ -67,12 +67,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
             <ul className="space-y-2.5 text-xs">
               {CATEGORIES.map((cat) => (
                 <li key={cat.id}>
-                  <button
-                    onClick={() => onNavigate({ type: 'journal', category: cat.id })}
-                    className="hover:text-[#FF5A1F] transition-colors text-left cursor-pointer"
+                  <a
+                    href={`/journal/${cat.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate({ type: 'journal', category: cat.id });
+                    }}
+                    className="hover:text-[#FF5A1F] transition-colors text-left cursor-pointer inline-block"
                   >
                     {cat.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -85,28 +89,40 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onToast }) => {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => onNavigate({ type: 'about' })}
-                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer"
+                <a
+                  href="/about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'about' });
+                  }}
+                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   About the Magazine
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate({ type: 'journal' })}
-                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer"
+                <a
+                  href="/journal"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'journal' });
+                  }}
+                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   The Rider’s Journal
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate({ type: 'contact' })}
-                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer"
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'contact' });
+                  }}
+                  className="hover:text-[#FF5A1F] transition-colors cursor-pointer inline-block"
                 >
                   Contact & Press Bikes
-                </button>
+                </a>
               </li>
               <li>
                 <button

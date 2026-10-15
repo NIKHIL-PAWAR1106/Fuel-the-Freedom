@@ -108,13 +108,17 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
       {/* Back to Blog Bar */}
       <div className="bg-[#101010] border-b border-[#202020] py-3.5 px-4 sm:px-6 lg:px-8 sticky top-20 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <button
-            onClick={onBackToBlog}
+          <a
+            href="/journal"
+            onClick={(e) => {
+              e.preventDefault();
+              onBackToBlog();
+            }}
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#A0A0A0] hover:text-[#FF5A1F] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>BACK TO THE JOURNAL</span>
-          </button>
+          </a>
 
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-mono text-[#666666] hidden sm:inline">
@@ -457,9 +461,13 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
           {/* Previous Article */}
           <div className="p-6 sm:p-8">
             {prevArticle ? (
-              <button
-                onClick={() => onSelectArticle(prevArticle.slug)}
-                className="group flex flex-col items-start text-left w-full cursor-pointer"
+              <a
+                href={`/article/${prevArticle.slug}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectArticle(prevArticle.slug);
+                }}
+                className="group flex flex-col items-start text-left w-full cursor-pointer block"
               >
                 <span className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#707070] group-hover:text-[#FF5A1F] transition-colors mb-2">
                   <ChevronLeft className="w-4 h-4" />
@@ -469,7 +477,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   {prevArticle.title}
                 </span>
                 <span className="text-xs text-[#808080] mt-1 font-mono">{prevArticle.readTime}</span>
-              </button>
+              </a>
             ) : (
               <div className="text-xs font-mono text-[#555555]">First article in the archive</div>
             )}
@@ -478,9 +486,13 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
           {/* Next Article */}
           <div className="p-6 sm:p-8">
             {nextArticle ? (
-              <button
-                onClick={() => onSelectArticle(nextArticle.slug)}
-                className="group flex flex-col items-end text-right w-full cursor-pointer"
+              <a
+                href={`/article/${nextArticle.slug}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSelectArticle(nextArticle.slug);
+                }}
+                className="group flex flex-col items-end text-right w-full cursor-pointer block"
               >
                 <span className="flex items-center gap-1.5 text-xs font-mono uppercase text-[#707070] group-hover:text-[#FF5A1F] transition-colors mb-2">
                   Next Story
@@ -490,7 +502,7 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
                   {nextArticle.title}
                 </span>
                 <span className="text-xs text-[#808080] mt-1 font-mono">{nextArticle.readTime}</span>
-              </button>
+              </a>
             ) : (
               <div className="text-xs font-mono text-[#555555] text-right">
                 Latest article in the archive
@@ -511,12 +523,16 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
               RELATED ARTICLES
             </h2>
           </div>
-          <button
-            onClick={onBackToBlog}
+          <a
+            href="/journal"
+            onClick={(e) => {
+              e.preventDefault();
+              onBackToBlog();
+            }}
             className="text-xs font-bold uppercase tracking-wider text-[#FF5A1F] hover:text-white transition-colors cursor-pointer"
           >
             All Stories →
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

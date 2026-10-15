@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Menu, X, ChevronRight, Compass } from 'lucide-react';
 import { CategoryId, PageRoute } from '../types';
+import { routeToPath } from '../utils/router';
 
 interface NavbarProps {
   currentRoute: PageRoute;
@@ -39,7 +40,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     return false;
   };
 
-  const handleNavClick = (route: PageRoute) => {
+  const handleNavClick = (e: React.MouseEvent, route: PageRoute) => {
+    e.preventDefault();
     onNavigate(route);
     setMobileMenuOpen(false);
   };
@@ -48,10 +50,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-[#222222] transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-4 lg:gap-8">
-          {/* Zone 1: Brand Wordmark */}
+          {/* Zone 1: Brand Wordmark with clean canonical link */}
           <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => handleNavClick({ type: 'home' })}
+            <a
+              href="/"
+              onClick={(e) => handleNavClick(e, { type: 'home' })}
               className="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none"
             >
               <div className="w-9 h-9 bg-[#FF5A1F] flex items-center justify-center font-display font-bold text-black text-xl tracking-tighter group-hover:bg-white transition-colors duration-200">
@@ -65,17 +68,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Est. 2026 · Built for the Ride
                 </span>
               </div>
-            </button>
+            </a>
           </div>
 
-          {/* Zone 2: Navigation Links (Desktop) */}
+          {/* Zone 2: Navigation Links (Desktop) with clean semantic URLs */}
           <nav className="hidden xl:flex items-center gap-6 text-xs font-semibold tracking-wider">
             {navItems.map((item) => {
               const active = isItemActive(item);
+              const path = routeToPath(item.route);
               return (
-                <button
+                <a
                   key={item.label}
-                  onClick={() => handleNavClick(item.route)}
+                  href={path}
+                  onClick={(e) => handleNavClick(e, item.route)}
                   className={`relative py-1 whitespace-nowrap transition-colors duration-150 cursor-pointer ${
                     active
                       ? 'text-[#FF5A1F]'
@@ -86,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {active && (
                     <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF5A1F]" />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -97,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenSearch}
               className="flex items-center gap-2 text-xs font-medium text-[#A0A0A0] hover:text-[#F5F5F5] bg-[#161616] hover:bg-[#202020] border border-[#2B2B2B] px-3 py-2 transition-all cursor-pointer"
-              title="Search articles (Cmd+K)"
+              title="Search articles (Cmd+K or /)"
             >
               <Search className="w-4 h-4 text-[#FF5A1F]" />
               <span className="hidden sm:inline text-xs">Search Journal</span>
@@ -107,13 +112,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {/* Direct Journal CTA */}
-            <button
-              onClick={() => handleNavClick({ type: 'journal' })}
+            <a
+              href="/journal"
+              onClick={(e) => handleNavClick(e, { type: 'journal' })}
               className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase px-4 py-2 bg-[#FF5A1F] hover:bg-[#E04812] text-black transition-colors cursor-pointer"
             >
               <Compass className="w-3.5 h-3.5" />
               <span>The Journal</span>
-            </button>
+            </a>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -137,10 +143,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="grid grid-cols-1 gap-1">
             {navItems.map((item) => {
               const active = isItemActive(item);
+              const path = routeToPath(item.route);
               return (
-                <button
+                <a
                   key={item.label}
-                  onClick={() => handleNavClick(item.route)}
+                  href={path}
+                  onClick={(e) => handleNavClick(e, item.route)}
                   className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold tracking-wide text-left transition-colors ${
                     active
                       ? 'bg-[#1C1C1C] text-[#FF5A1F] border-l-2 border-[#FF5A1F]'
@@ -149,12 +157,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <span>{item.label}</span>
                   <ChevronRight className="w-4 h-4 text-[#555555]" />
-                </button>
+                </a>
               );
             })}
 
-            <button
-              onClick={() => handleNavClick({ type: 'contact' })}
+            <a
+              href="/contact"
+              onClick={(e) => handleNavClick(e, { type: 'contact' })}
               className={`flex items-center justify-between w-full px-4 py-3 text-sm font-semibold tracking-wide text-left transition-colors ${
                 currentRoute.type === 'contact'
                   ? 'bg-[#1C1C1C] text-[#FF5A1F] border-l-2 border-[#FF5A1F]'
@@ -163,16 +172,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>CONTACT & DISPATCH</span>
               <ChevronRight className="w-4 h-4 text-[#555555]" />
-            </button>
+            </a>
           </div>
 
           <div className="pt-3 border-t border-[#222222] flex gap-2">
-            <button
-              onClick={() => handleNavClick({ type: 'journal' })}
+            <a
+              href="/journal"
+              onClick={(e) => handleNavClick(e, { type: 'journal' })}
               className="flex-1 py-3 text-center text-xs font-bold uppercase tracking-wider bg-[#FF5A1F] text-black"
             >
               Browse All 12+ Articles
-            </button>
+            </a>
           </div>
         </div>
       )}

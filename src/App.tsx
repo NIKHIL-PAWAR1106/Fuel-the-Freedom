@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PageRoute, CategoryId } from './types';
+import { ARTICLES } from './data/articles';
+import { routeToPath, pathToRoute, updatePageMeta } from './utils/router';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -13,69 +15,42 @@ import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>(() => {
-    // Parse initial route from URL hash if available
-    const hash = window.location.hash.replace('#', '');
-    if (hash.startsWith('article/')) {
-      return { type: 'article', slug: hash.replace('article/', '') };
-    }
-    if (hash.startsWith('journal')) {
-      const params = new URLSearchParams(hash.split('?')[1] || '');
-      const cat = params.get('category') as CategoryId | null;
-      return { type: 'journal', category: cat || undefined };
-    }
-    if (hash === 'about') return { type: 'about' };
-    if (hash === 'contact') return { type: 'contact' };
-    return { type: 'home' };
+    return pathToRoute(window.location.pathname, window.location.hash);
   });
 
   const [searchOpen, setSearchOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Sync route with window.location.hash
+  // Sync URL in address bar & update document meta
   useEffect(() => {
-    let hash = '';
-    if (currentRoute.type === 'home') {
-      hash = '';
-    } else if (currentRoute.type === 'journal') {
-      hash = currentRoute.category ? `journal?category=${currentRoute.category}` : 'journal';
-    } else if (currentRoute.type === 'article') {
-      hash = `article/${currentRoute.slug}`;
-    } else if (currentRoute.type === 'about') {
-      hash = 'about';
-    } else if (currentRoute.type === 'contact') {
-      hash = 'contact';
+    const targetPath = routeToPath(currentRoute);
+
+    // If there was a hash fragment like /#article/slug, clear hash and replace with clean path
+    if (window.location.hash) {
+      window.history.replaceState(null, '', targetPath);
+    } else if (window.location.pathname !== targetPath) {
+      window.history.pushState(null, '', targetPath);
     }
 
-    if (hash) {
-      window.location.hash = hash;
-    } else if (window.location.hash) {
-      history.pushState(null, '', window.location.pathname);
-    }
+    // Find active article if on article route
+    const activeArticle =
+      currentRoute.type === 'article'
+        ? ARTICLES.find((a) => a.slug === currentRoute.slug)
+        : undefined;
 
+    updatePageMeta(currentRoute, activeArticle?.title);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentRoute]);
 
-  // Listen to hash change from back/forward browser buttons
+  // Handle browser back / forward navigation (popstate)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash.startsWith('article/')) {
-        setCurrentRoute({ type: 'article', slug: hash.replace('article/', '') });
-      } else if (hash.startsWith('journal')) {
-        const params = new URLSearchParams(hash.split('?')[1] || '');
-        const cat = params.get('category') as CategoryId | null;
-        setCurrentRoute({ type: 'journal', category: cat || undefined });
-      } else if (hash === 'about') {
-        setCurrentRoute({ type: 'about' });
-      } else if (hash === 'contact') {
-        setCurrentRoute({ type: 'contact' });
-      } else {
-        setCurrentRoute({ type: 'home' });
-      }
+    const handlePopState = () => {
+      const parsedRoute = pathToRoute(window.location.pathname, window.location.hash);
+      setCurrentRoute(parsedRoute);
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   // Keyboard shortcut for search (Cmd+K or /)
@@ -84,7 +59,11 @@ export default function App() {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setSearchOpen((prev) => !prev);
-      } else if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+      } else if (
+        e.key === '/' &&
+        document.activeElement?.tagName !== 'INPUT' &&
+        document.activeElement?.tagName !== 'TEXTAREA'
+      ) {
         e.preventDefault();
         setSearchOpen(true);
       }
@@ -101,7 +80,7 @@ export default function App() {
     setCurrentRoute({ type: 'article', slug });
   };
 
-  const handleSelectCategoryFromSearch = (cat: CategoryId) => {
+  const handleSelectCategory = (cat?: CategoryId) => {
     setCurrentRoute({ type: 'journal', category: cat });
     setSearchOpen(false);
   };
@@ -143,6 +122,7 @@ export default function App() {
           <BlogListingPage
             initialCategory={currentRoute.category}
             onSelectArticle={handleSelectArticle}
+            onSelectCategory={handleSelectCategory}
           />
         )}
 
@@ -168,7 +148,7 @@ export default function App() {
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
         onSelectArticle={handleSelectArticle}
-        onSelectCategory={handleSelectCategoryFromSearch}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* Toast Notification Container */}

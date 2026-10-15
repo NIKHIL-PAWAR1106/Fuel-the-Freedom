@@ -7,11 +7,13 @@ import { CategoryId } from '../types';
 interface BlogListingPageProps {
   initialCategory?: CategoryId;
   onSelectArticle: (slug: string) => void;
+  onSelectCategory?: (category?: CategoryId) => void;
 }
 
 export const BlogListingPage: React.FC<BlogListingPageProps> = ({
   initialCategory,
   onSelectArticle,
+  onSelectCategory,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | 'all'>(
     initialCategory || 'all'
@@ -22,9 +24,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
 
   // Sync category if prop changes
   React.useEffect(() => {
-    if (initialCategory) {
-      setSelectedCategory(initialCategory);
-    }
+    setSelectedCategory(initialCategory || 'all');
   }, [initialCategory]);
 
   // Filter & Sort
@@ -74,6 +74,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
     setSearchQuery('');
     setSortBy('newest');
     setVisibleCount(8);
+    onSelectCategory?.(undefined);
   };
 
   return (
@@ -167,10 +168,13 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
 
           {/* Bottom row: Category Filter Tabs */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-2 border-b border-[#1E1E1E] no-scrollbar">
-            <button
-              onClick={() => {
+            <a
+              href="/journal"
+              onClick={(e) => {
+                e.preventDefault();
                 setSelectedCategory('all');
                 setVisibleCount(8);
+                onSelectCategory?.(undefined);
               }}
               className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 transition-colors cursor-pointer ${
                 selectedCategory === 'all'
@@ -179,16 +183,19 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
               }`}
             >
               All ({ARTICLES.length})
-            </button>
+            </a>
             {CATEGORIES.map((cat) => {
               const count = ARTICLES.filter((a) => a.category === cat.id).length;
               const isActive = selectedCategory === cat.id;
               return (
-                <button
+                <a
                   key={cat.id}
-                  onClick={() => {
+                  href={`/journal/${cat.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
                     setSelectedCategory(cat.id);
                     setVisibleCount(8);
+                    onSelectCategory?.(cat.id);
                   }}
                   className={`px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 transition-colors cursor-pointer ${
                     isActive
@@ -197,7 +204,7 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
                   }`}
                 >
                   {cat.label} ({count})
-                </button>
+                </a>
               );
             })}
           </div>

@@ -165,18 +165,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             </div>
 
             <div className="lg:col-span-4 flex flex-col gap-3">
-              <button
-                onClick={() => onNavigate({ type: 'journal' })}
-                className="w-full py-3.5 bg-[#FF5A1F] hover:bg-[#E04812] text-black font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer"
+              <a
+                href="/journal"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate({ type: 'journal' });
+                }}
+                className="w-full py-3.5 bg-[#FF5A1F] hover:bg-[#E04812] text-black font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer block"
               >
                 READ OUR REVIEWS
-              </button>
-              <button
-                onClick={() => onNavigate({ type: 'contact' })}
-                className="w-full py-3.5 bg-[#1C1C1C] hover:bg-[#252525] text-white border border-[#333333] font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer"
+              </a>
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate({ type: 'contact' });
+                }}
+                className="w-full py-3.5 bg-[#1C1C1C] hover:bg-[#252525] text-white border border-[#333333] font-display font-bold text-xs uppercase tracking-wider transition-colors text-center cursor-pointer block"
               >
                 PITCH A RIDE DISPATCH
-              </button>
+              </a>
             </div>
           </div>
         </section>

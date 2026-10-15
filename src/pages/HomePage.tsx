@@ -118,21 +118,29 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           {/* Call to Actions */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() => onNavigate({ type: 'journal' })}
+            <a
+              href="/journal"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'journal' });
+              }}
               className="w-full sm:w-auto px-8 py-4 bg-[#FF5A1F] hover:bg-[#E04812] text-black font-display font-bold text-base tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-[#FF5A1F]/20 cursor-pointer"
             >
               <span>EXPLORE THE STORIES</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
 
-            <button
-              onClick={() => onNavigate({ type: 'journal', category: 'reviews' })}
+            <a
+              href="/journal/reviews"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'journal', category: 'reviews' });
+              }}
               className="w-full sm:w-auto px-8 py-4 bg-[#181818] hover:bg-[#222222] text-[#F5F5F5] hover:text-[#FF5A1F] border border-[#2F2F2F] font-display font-bold text-base tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>LATEST REVIEWS</span>
               <ChevronRight className="w-4 h-4 text-[#888888]" />
-            </button>
+            </a>
           </div>
 
           {/* Quick Metrics Strip */}
@@ -305,10 +313,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             {CATEGORIES.map((cat) => {
               const count = ARTICLES.filter((a) => a.category === cat.id).length;
               return (
-                <button
+                <a
                   key={cat.id}
-                  onClick={() => onNavigate({ type: 'journal', category: cat.id })}
-                  className="group bg-[#141414] hover:bg-[#1A1A1A] border border-[#222222] hover:border-[#FF5A1F]/60 p-5 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[140px]"
+                  href={`/journal/${cat.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate({ type: 'journal', category: cat.id });
+                  }}
+                  className="group bg-[#141414] hover:bg-[#1A1A1A] border border-[#222222] hover:border-[#FF5A1F]/60 p-5 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[140px] block"
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs text-[#707070] font-mono">
@@ -322,14 +334,18 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-xs text-[#808080] line-clamp-2 mt-2 leading-relaxed">
                     {cat.description}
                   </p>
-                </button>
+                </a>
               );
             })}
 
             {/* Quick All Journal Card */}
-            <button
-              onClick={() => onNavigate({ type: 'journal' })}
-              className="bg-[#1C1C1C] hover:bg-[#252525] border border-[#333333] hover:border-[#FF5A1F] p-5 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[140px]"
+            <a
+              href="/journal"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ type: 'journal' });
+              }}
+              className="bg-[#1C1C1C] hover:bg-[#252525] border border-[#333333] hover:border-[#FF5A1F] p-5 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[140px] block"
             >
               <div>
                 <div className="text-xs text-[#FF5A1F] font-mono font-semibold">COMPLETE ARCHIVE</div>
@@ -340,7 +356,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-xs text-[#A0A0A0]">
                 Search, filter, and sort through the full catalog of long-form reports.
               </p>
-            </button>
+            </a>
           </div>
         </div>
       </section>

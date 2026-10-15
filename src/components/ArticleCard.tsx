@@ -14,11 +14,19 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   onSelect,
   layout = 'standard',
 }) => {
+  const articleUrl = `/article/${article.slug}`;
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onSelect(article.slug);
+  };
+
   if (layout === 'horizontal') {
     return (
-      <article
-        onClick={() => onSelect(article.slug)}
-        className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col md:flex-row overflow-hidden cursor-pointer"
+      <a
+        href={articleUrl}
+        onClick={handleClick}
+        className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col md:flex-row overflow-hidden cursor-pointer block"
       >
         <div className="md:w-5/12 aspect-[16/10] md:aspect-auto relative overflow-hidden">
           <MotorcycleImage
@@ -62,15 +70,16 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             </div>
           </div>
         </div>
-      </article>
+      </a>
     );
   }
 
   if (layout === 'compact') {
     return (
-      <article
-        onClick={() => onSelect(article.slug)}
-        className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 p-4 flex gap-4 overflow-hidden cursor-pointer"
+      <a
+        href={articleUrl}
+        onClick={handleClick}
+        className="group relative bg-[#131313] hover:bg-[#181818] border border-[#222222] hover:border-[#383838] transition-all duration-300 p-4 flex gap-4 overflow-hidden cursor-pointer block"
       >
         <div className="w-24 h-24 shrink-0 overflow-hidden relative">
           <MotorcycleImage
@@ -95,15 +104,16 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <span>{article.publishDate}</span>
           </div>
         </div>
-      </article>
+      </a>
     );
   }
 
   // Standard layout
   return (
-    <article
-      onClick={() => onSelect(article.slug)}
-      className="group relative bg-[#131313] hover:bg-[#171717] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col overflow-hidden cursor-pointer"
+    <a
+      href={articleUrl}
+      onClick={handleClick}
+      className="group relative bg-[#131313] hover:bg-[#171717] border border-[#222222] hover:border-[#383838] transition-all duration-300 flex flex-col overflow-hidden cursor-pointer block"
     >
       {/* Article thumbnail with zoom effect */}
       <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0A0A]">
@@ -159,6 +169,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           </div>
         </div>
       </div>
-    </article>
+    </a>
   );
 };
